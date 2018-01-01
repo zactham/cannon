@@ -30,3 +30,5 @@
 *.exe
 *.out
 *.app
+cannon/Debug/
+cannon/.vs/
