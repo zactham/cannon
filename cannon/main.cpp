@@ -5,7 +5,9 @@
 // we use the graphics API from SFML library
 #include <SFML/Graphics.hpp>
 
-
+//
+// main function
+//
 int main()
 {
 	// set up ball shape
@@ -21,20 +23,29 @@ int main()
 	//
 	// main game loop
 	//
-	while (true)
+	while (window.isOpen())
 	{
-		window.clear(sf::Color::Black);		// erase window
+        // check for exit
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            // Close window or hit escape to exit
+            if ( (event.type == sf::Event::Closed) ||
+                (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) )
+            {
+                window.close();
+            }
+        }
 
-		// if escape is pressed, then exit the loop
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape)) 
-			break;
-
-		// update/draw objects
+        // erase window
+        window.clear();
+        
+        // update/draw objects
 		window.draw(ballShape);
 
 		// draw window
 		window.display();
 	}
 
-	return 0;
+    return 0;
 }
