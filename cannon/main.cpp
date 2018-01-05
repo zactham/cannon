@@ -9,38 +9,38 @@
 //
 // our own ball class
 //
-class Ball
+class Circle
 {
 private:
-    sf::CircleShape ballShape;
-    int ballX;
-    int ballY;
+    sf::CircleShape circleShape;
+    float circleX;
+    float circleY;
     int radius;
     
 public:
     // constructor
-    Ball()
+    Circle()
     {
-        ballX = 0;
-        ballY = 0;
+        circleX = 0;
+        circleY = 0;
         radius = 0;
     }
     
-    void setX(int i)
+    void setX(float i)
     {
-        ballX = i;
+        circleX = i;
     }
-    void setY(int i)
+    void setY(float i)
     {
-        ballY = i;
+        circleY = i;
     }
-    int getX()
+    float getX()
     {
-        return ballX;
+        return circleX;
     }
-    int getY()
+    float getY()
     {
-        return ballY;
+        return circleY;
     }
     void setSize(int r)
     {
@@ -51,9 +51,9 @@ public:
         return radius;
     }
     
-    sf::CircleShape& getBall()
+    sf::CircleShape& getCircle()
     {
-        return ballShape;
+        return circleShape;
     }
     
     
@@ -131,61 +131,55 @@ public:
     
 };
 
-
-//
-// main function
-//
-
-int main()
+class Game
 {
-    int speed = 10;
-    int angle = 15;
-    int windowX = 800;
-    int windowY = 600;
-    
-    // set up ball shape
-    Ball ballShape;
-    ballShape.setX(500);
-    ballShape.setY(100);
-    ballShape.setSize(20);
-    ballShape.getBall().setPosition(ballShape.getX(), ballShape.getY());
-    ballShape.getBall().setRadius(ballShape.getSize());
-    ballShape.getBall().setFillColor(sf::Color::White);
-    
-    // set up ball shape
+public:
+    int speed = 0;
+    int angle = 0;
+    int windowX = 0;
+    int windowY = 0;
     Cannon cannonShape;
-    cannonShape.setX(500);
-    cannonShape.setY(400);
-    cannonShape.setWidth(100);
-    cannonShape.setHeight(20);
-    cannonShape.setAngle(0);
-    cannonShape.getCannon().setOrigin(cannonShape.getWidth()/2,cannonShape.getHeight()/2);
-    cannonShape.getCannon().setPosition(cannonShape.getX(), cannonShape.getY());
-    cannonShape.getCannon().setSize( {cannonShape.getWidth(), cannonShape.getHeight()} );
-    cannonShape.getCannon().setFillColor(sf::Color::White);
-
-    
-    // set up window
+    Circle outerWheel;
     sf::RenderWindow window{ { 800, 600}, "Cannon" };
-    window.setFramerateLimit(60);
     
-    //
-    // main game loop
-    //
-    while (window.isOpen())
+    Game()
     {
-        // check for exit
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            // Close window or hit escape to exit
-            if ( (event.type == sf::Event::Closed) ||
-                (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) )
-            {
-                window.close();
-            }
-        }
-        
+         speed = 10;
+         angle = 15;
+         windowX = 800;
+         windowY = 600;
+    }
+    
+   void cannonSetup()
+    {
+        // set up cannon
+        cannonShape.setX(500);
+        cannonShape.setY(400);
+        cannonShape.setWidth(100);
+        cannonShape.setHeight(20);
+        cannonShape.setAngle(0);
+        cannonShape.getCannon().setOrigin(cannonShape.getWidth()/2,cannonShape.getHeight()/2);
+        cannonShape.getCannon().setPosition(cannonShape.getX(), cannonShape.getY());
+        cannonShape.getCannon().setSize( {cannonShape.getWidth(), cannonShape.getHeight()} );
+        cannonShape.getCannon().setFillColor(sf::Color::White);
+    }
+    
+    void outerWheelSetup()
+    {
+        // set up ball shape
+        outerWheel.setX(cannonShape.getX());
+        outerWheel.setY(cannonShape.getY()-5);
+        outerWheel.setSize(20);
+        outerWheel.getCircle().setPosition(outerWheel.getX(), outerWheel.getY());
+        outerWheel.getCircle().setRadius(outerWheel.getSize());
+        outerWheel.getCircle().setFillColor(sf::Color::Black);
+
+    }
+ 
+    
+    
+    void keyboardCommands()
+    {
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         {
             cannonShape.setAngle(cannonShape.getAngle()+angle);
@@ -200,10 +194,15 @@ int main()
         }
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
         {
-           
+            
             cannonShape.setX(cannonShape.getX()-speed);
             cannonShape.setY(cannonShape.getY());
             cannonShape.getCannon().setPosition(cannonShape.getX(), cannonShape.getY());
+            
+            outerWheel.setX(outerWheel.getX()-speed);
+            outerWheel.setY(outerWheel.getY());
+            outerWheel.getCircle().setPosition(outerWheel.getX(), outerWheel.getY());
+            
             
         }
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
@@ -213,28 +212,98 @@ int main()
             cannonShape.setY(cannonShape.getY());
             cannonShape.getCannon().setPosition(cannonShape.getX(), cannonShape.getY());
             
-
+            outerWheel.setX(outerWheel.getX()+speed);
+            outerWheel.setY(outerWheel.getY());
+            outerWheel.getCircle().setPosition(outerWheel.getX(), outerWheel.getY());
+            
+            
+            
         }
         
-        
+    }
+    
+    void cannonXCheck()
+    {
         if(cannonShape.getX()<= 0)
-            cannonShape.setX(0);
-        if (cannonShape.getX()+cannonShape.getWidth()>= windowX)
-             cannonShape.setX(windowX-cannonShape.getWidth());
-
+        {
+            cannonShape.setX(0 + cannonShape.getWidth()/2);
+            outerWheel.setX(0 + cannonShape.getWidth()/2);
             
-        
-        
+        }
+        if (cannonShape.getX()>= windowX)
+        {
+            cannonShape.setX(windowX-cannonShape.getWidth()/2);
+            outerWheel.setX(windowX-cannonShape.getWidth()/2);
+            
+        }
+
+    }
+    
+    void windowOperations()
+    {
         // erase window
         window.clear();
         
         // update/draw objects
-       //window.draw(ballShape.getBall());
+        //window.draw(ballShape.getBall());
         window.draw(cannonShape.getCannon());
+        window.draw(outerWheel.getCircle());
         
         // draw window
         window.display();
     }
+    
+};
+    
+//
+// main function
+//
+
+int main()
+{
+    Game game;
+    
+    game.cannonSetup();
+    game.outerWheelSetup();
+    
+   
+    game.window.setFramerateLimit(60);
+    
+    
+    //
+    // main game loop
+    //
+    while (game.window.isOpen())
+    {
+        // check for exit
+        sf::Event event;
+        while (game.window.pollEvent(event))
+        {
+            // Close window or hit escape to exit
+            if ( (event.type == sf::Event::Closed) ||
+                (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) )
+            {
+                game.window.close();
+            }
+        }
+        
+        game.keyboardCommands();
+        
+        game.cannonXCheck();
+        
+        game.windowOperations();
+    }
+    
+    /*
+     // set up ball shape
+     Ball ballShape;
+     ballShape.setX(500);
+     ballShape.setY(100);
+     ballShape.setSize(20);
+     ballShape.getBall().setPosition(ballShape.getX(), ballShape.getY());
+     ballShape.getBall().setRadius(ballShape.getSize());
+     ballShape.getBall().setFillColor(sf::Color::White);
+     */
     /*
      if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
      {
