@@ -127,8 +127,6 @@ public:
         return cannonShape;
     }
     
-    
-    
 };
 
 class Game
