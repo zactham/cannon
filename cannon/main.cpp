@@ -18,7 +18,7 @@ private:
     int radius;
     
 public:
-    // constructor
+/// constructor
     Circle()
     {
         circleX = 0;
