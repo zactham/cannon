@@ -16,6 +16,7 @@ private:
     float circleX;
     float circleY;
     int radius;
+
     
 public:
 /// constructor
@@ -247,7 +248,7 @@ public:
         {
             cannonShape.setX(0 + cannonShape.getWidth()/2);
             outerWheel.setX(0 + cannonShape.getWidth()/2);
-            innerWheel.setX(0 + cannonShape.getWidth()/2);
+            innerWheel.setX(0 + cannonShape.getWidth()/2+7);
             
             cannonShape.getCannon().setPosition(cannonShape.getX(), cannonShape.getY());
             outerWheel.getCircle().setPosition(outerWheel.getX(), outerWheel.getY());
@@ -255,11 +256,11 @@ public:
 
             
         }
-        if (cannonShape.getX()>= windowX)
+        if (cannonShape.getX()+ cannonShape.getWidth() / 2 >= windowX)
         {
             cannonShape.setX(windowX-cannonShape.getWidth()/2);
             outerWheel.setX(windowX-cannonShape.getWidth()/2);
-            innerWheel.setX(windowX-cannonShape.getWidth()/2);
+            innerWheel.setX(windowX-cannonShape.getWidth()/2+7);
             
             cannonShape.getCannon().setPosition(cannonShape.getX(), cannonShape.getY());
             outerWheel.getCircle().setPosition(outerWheel.getX(), outerWheel.getY());
