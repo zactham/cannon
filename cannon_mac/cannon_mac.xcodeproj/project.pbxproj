@@ -262,7 +262,7 @@
 				INFOPLIST_FILE = "cannon_mac/cannon_mac-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				RUN_CLANG_STATIC_ANALYZER = YES;
+				RUN_CLANG_STATIC_ANALYZER = NO;
 				USER_HEADER_SEARCH_PATHS = "/Users/zac/Downloads/SFML-2.4.2-osx-clang/include";
 				WARNING_CFLAGS = (
 					"-Wall",
@@ -291,7 +291,7 @@
 				INFOPLIST_FILE = "cannon_mac/cannon_mac-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				RUN_CLANG_STATIC_ANALYZER = YES;
+				RUN_CLANG_STATIC_ANALYZER = NO;
 				USER_HEADER_SEARCH_PATHS = "/Users/zac/Downloads/SFML-2.4.2-osx-clang/include";
 				WARNING_CFLAGS = (
 					"-Wall",
