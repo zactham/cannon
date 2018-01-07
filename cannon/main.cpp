@@ -138,6 +138,7 @@ public:
     int windowY = 0;
     Cannon cannonShape;
     Circle outerWheel;
+    Circle innerWheel;
     sf::RenderWindow window{ { 800, 600}, "Cannon" };
     
     Game()
@@ -167,11 +168,22 @@ public:
         // set up ball shape
         outerWheel.setX(cannonShape.getX());
         outerWheel.setY(cannonShape.getY()-5);
-        outerWheel.setSize(20);
+        outerWheel.setSize(15);
         outerWheel.getCircle().setPosition(outerWheel.getX(), outerWheel.getY());
         outerWheel.getCircle().setRadius(outerWheel.getSize());
         outerWheel.getCircle().setFillColor(sf::Color::Black);
 
+    }
+    
+    void innerWheelSetup()
+    {
+        // set up ball shape
+        innerWheel.setX(cannonShape.getX()+7);
+        innerWheel.setY(cannonShape.getY()+3);
+        innerWheel.setSize(8);
+        innerWheel.getCircle().setPosition(innerWheel.getX(), innerWheel.getY());
+        innerWheel.getCircle().setRadius(innerWheel.getSize());
+        innerWheel.getCircle().setFillColor(sf::Color::White);
     }
  
     
@@ -201,6 +213,11 @@ public:
             outerWheel.setY(outerWheel.getY());
             outerWheel.getCircle().setPosition(outerWheel.getX(), outerWheel.getY());
             
+            innerWheel.setX(innerWheel.getX()-speed);
+            innerWheel.setY(innerWheel.getY());
+            innerWheel.getCircle().setPosition(innerWheel.getX(), innerWheel.getY());
+
+            
             
         }
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
@@ -214,6 +231,10 @@ public:
             outerWheel.setY(outerWheel.getY());
             outerWheel.getCircle().setPosition(outerWheel.getX(), outerWheel.getY());
             
+            innerWheel.setX(innerWheel.getX()+speed);
+            innerWheel.setY(innerWheel.getY());
+            innerWheel.getCircle().setPosition(innerWheel.getX(), innerWheel.getY());
+            
             
             
         }
@@ -226,12 +247,24 @@ public:
         {
             cannonShape.setX(0 + cannonShape.getWidth()/2);
             outerWheel.setX(0 + cannonShape.getWidth()/2);
+            innerWheel.setX(0 + cannonShape.getWidth()/2);
+            
+            cannonShape.getCannon().setPosition(cannonShape.getX(), cannonShape.getY());
+            outerWheel.getCircle().setPosition(outerWheel.getX(), outerWheel.getY());
+            innerWheel.getCircle().setPosition(innerWheel.getX(), innerWheel.getY());
+
             
         }
         if (cannonShape.getX()>= windowX)
         {
             cannonShape.setX(windowX-cannonShape.getWidth()/2);
             outerWheel.setX(windowX-cannonShape.getWidth()/2);
+            innerWheel.setX(windowX-cannonShape.getWidth()/2);
+            
+            cannonShape.getCannon().setPosition(cannonShape.getX(), cannonShape.getY());
+            outerWheel.getCircle().setPosition(outerWheel.getX(), outerWheel.getY());
+            innerWheel.getCircle().setPosition(innerWheel.getX(), innerWheel.getY());
+        
             
         }
 
@@ -246,6 +279,7 @@ public:
         //window.draw(ballShape.getBall());
         window.draw(cannonShape.getCannon());
         window.draw(outerWheel.getCircle());
+        window.draw(innerWheel.getCircle());
         
         // draw window
         window.display();
@@ -263,6 +297,8 @@ int main()
     
     game.cannonSetup();
     game.outerWheelSetup();
+    game.innerWheelSetup();
+
     
    
     game.window.setFramerateLimit(60);
