@@ -243,7 +243,7 @@ public:
     
     void cannonXCheck()
     {
-        if(cannonShape.getX()<= 0)
+        if(cannonShape.getX()-cannonShape.getWidth()/2<= 0)
         {
             cannonShape.setX(0 + cannonShape.getWidth()/2);
             outerWheel.setX(0 + cannonShape.getWidth()/2);
