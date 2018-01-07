@@ -350,9 +350,6 @@ int main()
     Game game;
     game.setup();
     
-
-    
-   
     game.window.setFramerateLimit(60);
     
     
@@ -377,49 +374,6 @@ int main()
         
         game.windowOperations();
     }
-    
-    /*
-     // set up ball shape
-     Ball ballShape;
-     ballShape.setX(500);
-     ballShape.setY(100);
-     ballShape.setSize(20);
-     ballShape.getBall().setPosition(ballShape.getX(), ballShape.getY());
-     ballShape.getBall().setRadius(ballShape.getSize());
-     ballShape.getBall().setFillColor(sf::Color::White);
-     */
-    /*
-     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-     {
-     ballShape.setX(ballShape.getX());
-     ballShape.setY(ballShape.getY()-speed);
-     ballShape.getBall().setPosition(ballShape.getX(), ballShape.getY());
-     
-     }
-     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-     {
-     
-     ballShape.setX(ballShape.getX());
-     ballShape.setY(ballShape.getY()+speed);
-     ballShape.getBall().setPosition(ballShape.getX(), ballShape.getY());
-     }
-     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-     {
-     
-     ballShape.setX(ballShape.getX()-speed);
-     ballShape.setY(ballShape.getY());
-     ballShape.getBall().setPosition(ballShape.getX(), ballShape.getY());
-     }
-     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-     {
-     
-     ballShape.setX(ballShape.getX()+speed);
-     ballShape.setY(ballShape.getY());
-     ballShape.getBall().setPosition(ballShape.getX(), ballShape.getY());
-     }
-     
-*/
-    
     return 0;
 }
 
