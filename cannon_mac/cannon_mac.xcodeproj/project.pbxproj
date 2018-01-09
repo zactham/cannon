@@ -8,12 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		110138C81FFB48370094F8CF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 110138C71FFB48370094F8CF /* main.cpp */; };
+		1104636A20043D9500117311 /* Circle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1104636920043D9500117311 /* Circle.cpp */; };
+		1104636D20043E4E00117311 /* Cannon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1104636B20043E4E00117311 /* Cannon.cpp */; };
+		110463712004407D00117311 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 110463702004407D00117311 /* Game.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		110138AF1FFB475F0094F8CF /* cannon_mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cannon_mac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		110138B31FFB475F0094F8CF /* cannon_mac-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "cannon_mac-Info.plist"; sourceTree = "<group>"; };
 		110138C71FFB48370094F8CF /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../cannon/main.cpp; sourceTree = "<group>"; };
+		1104636820043D1200117311 /* Circle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Circle.h; path = ../cannon/Circle.h; sourceTree = "<group>"; };
+		1104636920043D9500117311 /* Circle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Circle.cpp; path = ../cannon/Circle.cpp; sourceTree = "<group>"; };
+		1104636B20043E4E00117311 /* Cannon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Cannon.cpp; path = ../cannon/Cannon.cpp; sourceTree = "<group>"; };
+		1104636E20043EBC00117311 /* Cannon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Cannon.h; path = ../cannon/Cannon.h; sourceTree = "<group>"; };
+		1104636F2004404600117311 /* Game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Game.h; path = ../cannon/Game.h; sourceTree = "<group>"; };
+		110463702004407D00117311 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Game.cpp; path = ../cannon/Game.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +39,12 @@
 		110138A51FFB475F0094F8CF = {
 			isa = PBXGroup;
 			children = (
+				1104636920043D9500117311 /* Circle.cpp */,
+				1104636820043D1200117311 /* Circle.h */,
+				1104636B20043E4E00117311 /* Cannon.cpp */,
+				1104636E20043EBC00117311 /* Cannon.h */,
+				110463702004407D00117311 /* Game.cpp */,
+				1104636F2004404600117311 /* Game.h */,
 				110138B11FFB475F0094F8CF /* cannon_mac */,
 				110138B01FFB475F0094F8CF /* Products */,
 			);
@@ -143,7 +158,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1104636D20043E4E00117311 /* Cannon.cpp in Sources */,
 				110138C81FFB48370094F8CF /* main.cpp in Sources */,
+				1104636A20043D9500117311 /* Circle.cpp in Sources */,
+				110463712004407D00117311 /* Game.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
