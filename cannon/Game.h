@@ -23,8 +23,9 @@ public:
     Game();
     
     void setup();
-    void keyboardCommands();
-    void windowOperations();
+    void update();
+    void draw();
+    void run();
     
 };
 

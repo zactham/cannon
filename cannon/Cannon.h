@@ -21,6 +21,7 @@ private:
     float height;
     float angle;
     float speed = 0;
+    float rotationAmount;
     int windowWidth = 0;
     int windowHeight = 0;
     

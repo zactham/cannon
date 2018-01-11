@@ -16,6 +16,7 @@ Cannon::Cannon()
     width = 0;
     height = 0;
     speed = 10;
+    rotationAmount = 5;
     angle = 15;
 }
 
@@ -27,7 +28,6 @@ void Cannon::cannonSetup()
     setY(400);
     setWidth(100);
     setHeight(20);
-    setAngle(0);
     getCannon().setOrigin(getWidth()/2,getHeight()/2);
     getCannon().setPosition(getX(), getY());
     getCannon().setSize( {getWidth(), getHeight()} );
@@ -89,14 +89,20 @@ void Cannon::boundaryCheck()
 //public methods
 void Cannon::aimUp()
 {
-    setAngle(getAngle()+angle);
-    getCannon().setRotation(getAngle());
+    if(getAngle() + rotationAmount >= 0 && getAngle() +rotationAmount <= 75)
+    {
+        setAngle(getAngle()+rotationAmount);
+        getCannon().setRotation(getAngle());
+    }
 }
 
 void Cannon::aimDown()
 {
-    setAngle(getAngle()-angle);
-    getCannon().setRotation(getAngle());
+    if(getAngle() - rotationAmount >= 0 && getAngle() - rotationAmount <= 75)
+    {
+        setAngle(getAngle()-rotationAmount);
+        getCannon().setRotation(getAngle());
+    }
 }
 void Cannon::moveLeft()
 {

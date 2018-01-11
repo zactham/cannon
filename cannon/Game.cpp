@@ -17,10 +17,11 @@ Game::Game()
 //Public methods
 void Game::setup()
 {
+    window.setFramerateLimit(60);
     cannon.setup(windowWidth, windowHeight);
 }
 
-void Game::keyboardCommands()
+void Game::update()
 {
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
     {
@@ -45,7 +46,7 @@ void Game::keyboardCommands()
     
 }
 
-void Game::windowOperations()
+void Game::draw()
 {
     // erase window
     window.clear();
@@ -56,4 +57,30 @@ void Game::windowOperations()
     
     // draw window
     window.display();
+}
+
+void Game::run()
+{
+    //
+    // main game loop
+    //
+    while (window.isOpen())
+    {
+        // check for exit
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            // Close window or hit escape to exit
+            if ( (event.type == sf::Event::Closed) ||
+                (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) )
+            {
+                window.close();
+            }
+        }
+        
+        update();
+        
+        draw();
+    }
+    
 }
