@@ -13,7 +13,7 @@
 
 class Game
 {
-public:
+private:
     unsigned int windowWidth = 800;
     unsigned int windowHeight = 600;
     Cannon cannon;
@@ -21,10 +21,11 @@ public:
     sf::RenderWindow window{ { windowWidth, windowHeight}, "Cannon" };
     
     Game();
-    
-    void setup();
     void update();
     void draw();
+    
+public:
+    void setup();
     void run();
     
 };
