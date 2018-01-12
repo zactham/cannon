@@ -26,21 +26,21 @@ Vector2f::Vector2f(float xIn, float yIn)
 
 void Vector2f::add(Vector2f vector)
 {
-    vector.setX(x+vector.getX());
-    vector.setY(y+vector.getY());
+    setX(x+vector.getX());
+    setY(y+vector.getY());
 }
 
 
 void Vector2f::subtract(Vector2f vector)
 {
-    vector.setX(x-vector.getX());
-    vector.setY(y-vector.getY());
+    setX(x-vector.getX());
+    setY(y-vector.getY());
 }
 
 void Vector2f::multiply(float num)
 {
-    vector.setX(vector.getX()*num);
-    vector.setY(vector.getY()*num);
+    setX(x*num);
+    setY(y*num);
 }
 
 void Vector2f::setX(float xIn)

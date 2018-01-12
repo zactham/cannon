@@ -20,7 +20,7 @@ private:
     
 public:
     Vector2f();
-    Vector2f(x,y);
+    Vector2f(float x,float y);
     float getX();
     float getY();
     void setX(float xInput);
