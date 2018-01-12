@@ -20,13 +20,15 @@ private:
     
     sf::RenderWindow window{ { windowWidth, windowHeight}, "Cannon" };
     
-    Game();
     void update();
     void draw();
     
+    
 public:
+    Game();
     void setup();
     void run();
+   
     
 };
 
