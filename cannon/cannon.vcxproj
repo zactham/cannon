@@ -83,11 +83,13 @@
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Vector2f.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cannon.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Vector2f.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
