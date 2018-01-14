@@ -12,6 +12,7 @@
 		1104636D20043E4E00117311 /* Cannon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1104636B20043E4E00117311 /* Cannon.cpp */; };
 		110463712004407D00117311 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 110463702004407D00117311 /* Game.cpp */; };
 		11046374200849DD00117311 /* Vector2f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11046373200849DD00117311 /* Vector2f.cpp */; };
+		11046376200B2B9400117311 /* CannonBall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11046375200B2B9400117311 /* CannonBall.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		110463702004407D00117311 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Game.cpp; path = ../cannon/Game.cpp; sourceTree = "<group>"; };
 		11046372200849C500117311 /* Vector2f.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Vector2f.h; path = ../cannon/Vector2f.h; sourceTree = "<group>"; };
 		11046373200849DD00117311 /* Vector2f.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector2f.cpp; path = ../cannon/Vector2f.cpp; sourceTree = "<group>"; };
+		11046375200B2B9400117311 /* CannonBall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CannonBall.cpp; path = ../cannon/CannonBall.cpp; sourceTree = "<group>"; };
+		11046377200B2BA300117311 /* CannonBall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CannonBall.h; path = ../cannon/CannonBall.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +45,8 @@
 		110138A51FFB475F0094F8CF = {
 			isa = PBXGroup;
 			children = (
+				11046375200B2B9400117311 /* CannonBall.cpp */,
+				11046377200B2BA300117311 /* CannonBall.h */,
 				11046373200849DD00117311 /* Vector2f.cpp */,
 				11046372200849C500117311 /* Vector2f.h */,
 				1104636920043D9500117311 /* Circle.cpp */,
@@ -164,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1104636D20043E4E00117311 /* Cannon.cpp in Sources */,
+				11046376200B2B9400117311 /* CannonBall.cpp in Sources */,
 				110138C81FFB48370094F8CF /* main.cpp in Sources */,
 				1104636A20043D9500117311 /* Circle.cpp in Sources */,
 				11046374200849DD00117311 /* Vector2f.cpp in Sources */,

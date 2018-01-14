@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include "Vector2f.h"
+#include "math.h"
 
 //Constructor
 Vector2f::Vector2f()
@@ -24,14 +25,14 @@ Vector2f::Vector2f(float xIn, float yIn)
     
 }
 
-void Vector2f::add(Vector2f vector)
+void Vector2f::add(Vector2f& vector)
 {
     setX(x+vector.getX());
     setY(y+vector.getY());
 }
 
 
-void Vector2f::subtract(Vector2f vector)
+void Vector2f::subtract(Vector2f& vector)
 {
     setX(x-vector.getX());
     setY(y-vector.getY());
@@ -64,10 +65,22 @@ float Vector2f::getY()
     return y;
 }
 
-void Vector2f::copy(Vector2f vector)
+void Vector2f::copy(Vector2f& vector)
 {
     x = vector.getX();
     y = vector.getY();
+}
+
+float Vector2f::getLength()
+{
+    float length = sqrt(getX() * getX() + getY() * getY());
+    return length;
+}
+
+void Vector2f::normalize()
+{
+    setX(getX()/getLength());
+    setY(getY()/getLength());
 }
 
 

@@ -18,15 +18,16 @@ private:
 public:
     Vector2f();
     Vector2f(float x,float y);
-    void add(Vector2f vector);
-    void subtract(Vector2f vector);
+    void add(Vector2f& vector);
+    void subtract(Vector2f& vector);
     void multiply(float num);
-    void copy(Vector2f vector);
+    void copy(Vector2f& vector);
     float getX();
     float getY();
     void setX(float xInput);
     void setY(float yInput);
-    
+    float getLength();
+    void normalize();
     
     
 };
