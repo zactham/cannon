@@ -8,6 +8,8 @@
 
 #ifndef CannonBall_h
 #define CannonBall_h
+#include "Vector2f.h"
+#include <SFML/Graphics.hpp>
 class CannonBall
 {
 private:

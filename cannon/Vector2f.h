@@ -7,6 +7,7 @@
 //
 #ifndef Vector2f_h
 #define Vector2f_h
+
 class Vector2f
 {
 private:
