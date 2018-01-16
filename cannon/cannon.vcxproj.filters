@@ -30,6 +30,9 @@
     <ClCompile Include="Vector2f.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CannonBall.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cannon.h">
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Vector2f.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CannonBall.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
