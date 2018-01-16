@@ -7,11 +7,11 @@
 //
 
 #include <stdio.h>
-#include "Cannoball.h"
+#include "Cannonball.h"
 
 void CannonBall::draw(sf::RenderWindow& window)
 {
-    draw(window);
+    shape.draw(window);
 }
 
 void CannonBall:: update()
