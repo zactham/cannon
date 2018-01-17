@@ -7,8 +7,10 @@
 //
 
 #include <stdio.h>
+#define _USE_MATH_DEFINES
+#include <math.h>
+
 #include "Vector2f.h"
-#include "math.h"
 
 
 //Constructor
