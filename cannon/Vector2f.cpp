@@ -10,6 +10,7 @@
 #include "Vector2f.h"
 #include "math.h"
 
+
 //Constructor
 Vector2f::Vector2f()
 {
@@ -73,14 +74,24 @@ void Vector2f::copy(Vector2f& vector)
 
 float Vector2f::getLength()
 {
-    float length = sqrt(getX() * getX() + getY() * getY());
+    float length = sqrtf(getX() * getX() + getY() * getY());
     return length;
 }
 
 void Vector2f::normalize()
 {
-    setX(getX()/getLength());
-    setY(getY()/getLength());
+    float length = getLength();
+    
+    setX(getX()/length);
+    setY(getY()/length);
+}
+
+void Vector2f::setFromAngle(float angle)
+{
+   float radian = angle * M_PI / 180;
+    setX(cosf(radian));
+    setY(sinf(radian));
+    
 }
 
 

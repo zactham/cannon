@@ -9,10 +9,12 @@
 #ifndef Cannon_h
 #define Cannon_h
 #include "Circle.h"
+#include "CannonBall.h"
 class Cannon
 {
 private:
     sf::RectangleShape cannonShape;//barrel
+    CannonBall cannonBall;
     Circle outerWheel;
     Circle innerWheel;
     float cannonX;
@@ -44,6 +46,8 @@ public:
     void moveRight();
     void draw(sf::RenderWindow& window);
     void setup(int w, int h);
+    void update();
+    void fire();
     
     
     

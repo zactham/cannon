@@ -29,6 +29,7 @@ public:
     void setY(float yInput);
     float getLength();
     void normalize();
+    void setFromAngle(float angle);
     
     
 };

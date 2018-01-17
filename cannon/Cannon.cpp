@@ -32,6 +32,7 @@ void Cannon::cannonSetup()
     getCannon().setPosition(getX(), getY());
     getCannon().setSize( {getWidth(), getHeight()} );
     getCannon().setFillColor(sf::Color::White);
+    cannonBall.setup();
     
 }
 
@@ -146,6 +147,7 @@ void Cannon::draw(sf::RenderWindow& window)
     window.draw(getCannon());
     window.draw(outerWheel.getCircle());
     window.draw(innerWheel.getCircle());
+    cannonBall.draw(window);
     
 }
 
@@ -157,6 +159,16 @@ void Cannon:: setup(int w, int h)
     
     windowWidth = w;
     windowHeight = h;
+}
+
+void Cannon::update()
+{
+    cannonBall.update();
+}
+
+void fire()
+{
+    
 }
 
 
