@@ -18,11 +18,10 @@ private:
     Vector2f velocity;
     float radius;
     bool enabled;
-    int windowWidth;
-    int windowHeight;
+    
     
 public:
-    CannonBall();
+    CannonBall(int w, int h);
     void draw(sf::RenderWindow& window);
     void update();
     void setRadius(float r);

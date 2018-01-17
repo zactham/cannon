@@ -17,7 +17,8 @@ Cannon::Cannon()
     height = 0;
     speed = 10;
     rotationAmount = 5;
-    angle = 15;
+    angle = 0;
+    //cannonBall = new CannonBall(windowWidth,windowHeight);
 }
 
 // private methods
@@ -28,6 +29,7 @@ void Cannon::cannonSetup()
     setY(400);
     setWidth(100);
     setHeight(20);
+    setAngle(15);
     getCannon().setOrigin(getWidth()/2,getHeight()/2);
     getCannon().setPosition(getX(), getY());
     getCannon().setSize( {getWidth(), getHeight()} );
@@ -166,7 +168,7 @@ void Cannon::update()
     cannonBall.update();
 }
 
-void fire()
+void Cannon::fire()
 {
     
 }

@@ -12,9 +12,11 @@
 
 
 //Constructor
-CannonBall::CannonBall()
+CannonBall::CannonBall(int ww, int wh)
 {
-    enabled = true;
+    enabled = false;
+    setWindowWidth(ww);
+    setWindowHeight(wh);
     
 }
 
@@ -35,11 +37,15 @@ void CannonBall::update()
         else
             enabled = false;
     }
+    
+    if (getX() < getWindowWidth() || getY() < getWindowHeight())
+        enabled = false;
 }
 
 void CannonBall::setRadius(float r)
 {
     radius  = r;
+    shape.setRadius(radius);
 }
 
 float CannonBall::getRadius()

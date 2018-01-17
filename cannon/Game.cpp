@@ -44,6 +44,12 @@ void Game::update()
         
     }
     
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+    {
+        cannon.fire();
+        
+    }
+    
 }
 
 void Game::draw()
