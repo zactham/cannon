@@ -8,6 +8,7 @@
 
 #include "Cannon.h"
 #include <SFML/Graphics.hpp>
+#include "Vector2f.h"
 // constructor
 Cannon::Cannon()
 {
@@ -18,7 +19,6 @@ Cannon::Cannon()
     speed = 10;
     rotationAmount = 5;
     angle = 0;
-    //cannonBall = new CannonBall(windowWidth,windowHeight);
 }
 
 // private methods
@@ -29,7 +29,6 @@ void Cannon::cannonSetup()
     setY(400);
     setWidth(100);
     setHeight(20);
-    setAngle(15);
     getCannon().setOrigin(getWidth()/2,getHeight()/2);
     getCannon().setPosition(getX(), getY());
     getCannon().setSize( {getWidth(), getHeight()} );
@@ -170,7 +169,14 @@ void Cannon::update()
 
 void Cannon::fire()
 {
-    
+    cannonBall = *new CannonBall(windowWidth, windowHeight);
+    cannonBall.setup();
+    cannonBall.setEnabled(true);
+    cannonBall.setX(getX());
+    cannonBall.setY(getY());
+    cannonBall.velocity.add(getAngle());
+    cannonBall.velocity.multiply(-1);
+    //cannonBall.setPosition(cannonBall.getY(),cannonBall.getY());
 }
 
 

@@ -14,7 +14,7 @@ class Cannon
 {
 private:
     sf::RectangleShape cannonShape;//barrel
-    
+    CannonBall cannonBall;
     Circle outerWheel;
     Circle innerWheel;
     float cannonX;
@@ -26,7 +26,6 @@ private:
     float rotationAmount;
     int windowWidth = 0;
     int windowHeight = 0;
-    CannonBall cannonBall = new CannonBall(windowWidth,windowHeight);
     
     //Methods in Cannon.cpp
     void cannonSetup();

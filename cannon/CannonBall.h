@@ -18,6 +18,8 @@ private:
     Vector2f velocity;
     float radius;
     bool enabled;
+    float cannonX;
+    float cannonY;
     
     
 public:
@@ -33,6 +35,25 @@ public:
     void setWindowHeight(int h);
     int getWindowHeight();
     void setup();
+    
+    
+    void setX(float i)
+    {
+        cannonX = i;
+    }
+    void setY(float i)
+    {
+        cannonY = i;
+    }
+    float getX()
+    {
+        return cannonX;
+    }
+    float getY()
+    {
+        return cannonY;
+    }
+
     
 };
 
