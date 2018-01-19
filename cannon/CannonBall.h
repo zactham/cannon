@@ -18,12 +18,13 @@ private:
     Vector2f velocity;
     float radius;
     bool enabled;
-    float cannonX;
-    float cannonY;
+	int windowWidth;
+	int windowHeight;
     
     
 public:
     CannonBall(int w, int h);
+	CannonBall();
     void draw(sf::RenderWindow& window);
     void update();
     void setRadius(float r);
@@ -31,28 +32,15 @@ public:
     void setEnabled(bool en);
     bool getEnabled();
     void setWindowWidth(int w);
-    int getWindowWidth();
+	int getWindowWidth();
     void setWindowHeight(int h);
-    int getWindowHeight();
+	int getWindowHeight();
     void setup();
-    
-    
-    void setX(float i)
-    {
-        cannonX = i;
-    }
-    void setY(float i)
-    {
-        cannonY = i;
-    }
-    float getX()
-    {
-        return cannonX;
-    }
-    float getY()
-    {
-        return cannonY;
-    }
+	void setVelocity(Vector2f v);
+	Vector2f& getVelocity();
+	void setPosition(Vector2f p);
+	Vector2f&getPosition();
+  
 
     
 };

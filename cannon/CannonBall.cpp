@@ -12,9 +12,13 @@
 
 
 //Constructor
+CannonBall::CannonBall()
+{
+
+}
 CannonBall::CannonBall(int ww, int wh)
 {
-    enabled = false;
+	enabled = false;
     setWindowWidth(ww);
     setWindowHeight(wh);
     
@@ -22,8 +26,13 @@ CannonBall::CannonBall(int ww, int wh)
 
 void CannonBall::draw(sf::RenderWindow& window)
 {
-   if (enabled)
-       window.draw(shape);
+	
+	if (enabled)
+	{
+		shape.setPosition(getPosition().getX(), getPosition().getY());
+		window.draw(shape);
+    }
+     
 }
 
 void CannonBall::update()
@@ -32,14 +41,12 @@ void CannonBall::update()
     {
         Vector2f newPos = position;
         newPos.add(velocity);
-        if(newPos.getX()<= getWindowWidth() && newPos.getY() <= getWindowHeight())
-            position = newPos;
-        else
-            enabled = false;
+		if (newPos.getX() + getRadius() <= 0 || newPos.getX() + getRadius() >= getWindowWidth() || newPos.getY() + getRadius() <= 0 || newPos.getY() + getRadius() >= getWindowHeight())
+			enabled = false;
+		setPosition(newPos);
+		
     }
-    
-    if (getX() < getWindowWidth() || getY() < getWindowHeight())
-        enabled = false;
+
 }
 
 void CannonBall::setRadius(float r)
@@ -85,11 +92,35 @@ int CannonBall::getWindowHeight()
 
 void CannonBall::setup()
 {
+	setEnabled(false);
     setWindowWidth(windowWidth);
     setWindowWidth(windowHeight);
     shape.setFillColor(sf::Color::White);
     setRadius(5);
     
+}
+
+void CannonBall::setVelocity(Vector2f v)
+{
+	velocity = v;
+
+}
+
+Vector2f& CannonBall::getVelocity()
+{
+	return velocity;
+
+}
+
+void CannonBall::setPosition(Vector2f p)
+{
+	position = p;
+
+}
+Vector2f& CannonBall::getPosition()
+{
+	return position;
+
 }
 
 

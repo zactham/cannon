@@ -172,11 +172,14 @@ void Cannon::fire()
     cannonBall = *new CannonBall(windowWidth, windowHeight);
     cannonBall.setup();
     cannonBall.setEnabled(true);
-    cannonBall.setX(getX());
-    cannonBall.setY(getY());
-    cannonBall.velocity.add(getAngle());
-    cannonBall.velocity.multiply(-1);
-    //cannonBall.setPosition(cannonBall.getY(),cannonBall.getY());
+	//setting the cannonball position to cannons position
+	Vector2f pos = Vector2f(getX(), getY());
+	cannonBall.setPosition(pos);
+	//set cannon velocity to cannon rotation angle
+	Vector2f angle;
+	angle.setFromAngle(getAngle());
+	angle.multiply(-3);//flip the angle to make it point left instead of right
+	cannonBall.setVelocity(angle);
 }
 
 

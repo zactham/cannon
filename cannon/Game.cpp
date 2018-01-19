@@ -49,6 +49,7 @@ void Game::update()
         cannon.fire();
         
     }
+	cannon.update();
     
 }
 
