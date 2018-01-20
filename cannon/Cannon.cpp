@@ -19,6 +19,7 @@ Cannon::Cannon()
     speed = 10;
     rotationAmount = 5;
     angle = 0;
+    currentBall = 0;
 }
 
 // private methods
@@ -33,7 +34,7 @@ void Cannon::cannonSetup()
     getCannon().setPosition(getX(), getY());
     getCannon().setSize( {getWidth(), getHeight()} );
     getCannon().setFillColor(sf::Color::White);
-    cannonBall.setup();
+    cannonBallList.at(currentBall).setup();
     
 }
 
@@ -148,7 +149,10 @@ void Cannon::draw(sf::RenderWindow& window)
     window.draw(getCannon());
     window.draw(outerWheel.getCircle());
     window.draw(innerWheel.getCircle());
-    cannonBall.draw(window);
+    if(currentBall>=0)
+    {
+    cannonBallList.at(currentBall).draw(window);
+    }
     
 }
 
@@ -164,22 +168,39 @@ void Cannon:: setup(int w, int h)
 
 void Cannon::update()
 {
-    cannonBall.update();
+    
+    
+    //removes disabled cannonBalls
+    if(currentBall>=0)
+    {
+    cannonBallList.at(currentBall).update();
+    unsigned int i;   // we use 'unsigned' here to avoid compiler warning below
+    for (i = 0; i<cannonBallList.size(); i++)
+        if(cannonBallList.at(currentBall).getEnabled() == false)
+            cannonBallList.erase(cannonBallList.begin() + i);
+        
+    }
 }
 
 void Cannon::fire()
 {
-    cannonBall = *new CannonBall(windowWidth, windowHeight);
-    cannonBall.setup();
-    cannonBall.setEnabled(true);
+    CannonBall cannonBall = *new CannonBall(windowWidth, windowHeight);
+    cannonBallList.push_back(cannonBall);
+    currentBall++;
+    cannonBallList.at(currentBall).setup();
+    cannonBallList.at(currentBall).setEnabled(true);
 	//setting the cannonball position to cannons position
 	Vector2f pos = Vector2f(getX(), getY());
-	cannonBall.setPosition(pos);
+	cannonBallList.at(currentBall).setPosition(pos);
 	//set cannon velocity to cannon rotation angle
 	Vector2f angle;
 	angle.setFromAngle(getAngle());
-	angle.multiply(-3);//flip the angle to make it point left instead of right
-	cannonBall.setVelocity(angle);
+	angle.multiply(-2);//flip the angle to make it point left instead of right
+	cannonBallList.at(currentBall).setVelocity(angle);
+    
+    
+    
+    
 }
 
 

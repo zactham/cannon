@@ -44,6 +44,8 @@ void CannonBall::update()
 		if (newPos.getX() + getRadius() <= 0 || newPos.getX() + getRadius() >= getWindowWidth() || newPos.getY() + getRadius() <= 0 || newPos.getY() + getRadius() >= getWindowHeight())
 			enabled = false;
 		setPosition(newPos);
+        Vector2f gravity = Vector2f(1,1);
+        gravity.add(velocity);
 		
     }
 
@@ -94,7 +96,7 @@ void CannonBall::setup()
 {
 	setEnabled(false);
     setWindowWidth(windowWidth);
-    setWindowWidth(windowHeight);
+    setWindowHeight(windowHeight);
     shape.setFillColor(sf::Color::White);
     setRadius(5);
     
