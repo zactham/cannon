@@ -19,7 +19,6 @@ Cannon::Cannon()
     speed = 10;
     rotationAmount = 5;
     angle = 0;
-    currentBall = -1;
 }
 
 // private methods
@@ -34,7 +33,9 @@ void Cannon::cannonSetup()
     getCannon().setPosition(getX(), getY());
     getCannon().setSize( {getWidth(), getHeight()} );
     getCannon().setFillColor(sf::Color::White);
-    cannonBallList.at(currentBall).setup();
+    unsigned int i;   // we use 'unsigned' here to avoid compiler warning below
+    for (i = 0; i<cannonBallList.size(); i++)
+    cannonBallList.at(i).setup();
     
 }
 
@@ -149,10 +150,9 @@ void Cannon::draw(sf::RenderWindow& window)
     window.draw(getCannon());
     window.draw(outerWheel.getCircle());
     window.draw(innerWheel.getCircle());
-    if(currentBall>=0)
-    {
-    cannonBallList.at(currentBall).draw(window);
-    }
+    unsigned int i;   // we use 'unsigned' here to avoid compiler warning below
+    for (i = 0; i<cannonBallList.size(); i++)
+        cannonBallList.at(i).draw(window);
     
 }
 
@@ -168,35 +168,37 @@ void Cannon:: setup(int w, int h)
 
 void Cannon::update()
 {
-    
-    
-    //removes disabled cannonBalls
-    if(currentBall>=0)
-    {
-    cannonBallList.at(currentBall).update();
     unsigned int i;   // we use 'unsigned' here to avoid compiler warning below
     for (i = 0; i<cannonBallList.size(); i++)
-        if(cannonBallList.at(currentBall).getEnabled() == false)
+    {
+        cannonBallList.at(i).update();
+        if(cannonBallList.at(i).getEnabled() == false)
+        {
             cannonBallList.erase(cannonBallList.begin() + i);
-        
+        }
     }
+    
+    
 }
 
 void Cannon::fire()
 {
+   
     CannonBall cannonBall = *new CannonBall(windowWidth, windowHeight);
-    cannonBallList.push_back(cannonBall);
-    currentBall++;
-    cannonBallList.at(currentBall).setup();
-    cannonBallList.at(currentBall).setEnabled(true);
+    cannonBall.setup();
+    cannonBall.setEnabled(true);
+    
 	//setting the cannonball position to cannons position
 	Vector2f pos = Vector2f(getX(), getY());
-	cannonBallList.at(currentBall).setPosition(pos);
+	cannonBall.setPosition(pos);
+    
 	//set cannon velocity to cannon rotation angle
 	Vector2f angle;
 	angle.setFromAngle(getAngle());
 	angle.multiply(-2);//flip the angle to make it point left instead of right
-	cannonBallList.at(currentBall).setVelocity(angle);
+    
+    cannonBall.setVelocity(angle);
+    cannonBallList.push_back(cannonBall);
     
     
     
