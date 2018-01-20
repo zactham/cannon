@@ -43,13 +43,6 @@ void Game::update()
         cannon.moveRight();
         
     }
-    
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-    {
-       
-        cannon.fire();
-        
-    }
 	cannon.update();
     
 }
@@ -78,6 +71,11 @@ void Game::run()
         sf::Event event;
         while (window.pollEvent(event))
         {
+
+			if (event.key.code == sf::Keyboard::Space && event.type == sf::Event::KeyReleased)
+				cannon.fire();
+				
+
             // Close window or hit escape to exit
             if ( (event.type == sf::Event::Closed) ||
                 (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) )

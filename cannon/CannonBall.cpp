@@ -44,8 +44,8 @@ void CannonBall::update()
 		if (newPos.getX() + getRadius() <= 0 || newPos.getX() + getRadius() >= getWindowWidth() || newPos.getY() + getRadius() <= 0 || newPos.getY() + getRadius() >= getWindowHeight())
 			enabled = false;
 		setPosition(newPos);
-        Vector2f gravity = Vector2f(1,1);
-        gravity.add(velocity);
+        Vector2f gravity = Vector2f(0,0.03f);
+        velocity.add(gravity);
 		
     }
 
