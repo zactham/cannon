@@ -19,7 +19,7 @@ Cannon::Cannon()
     speed = 10;
     rotationAmount = 5;
     angle = 0;
-    currentBall = 0;
+    currentBall = -1;
 }
 
 // private methods
