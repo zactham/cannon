@@ -91,6 +91,7 @@
     <ClInclude Include="CannonBall.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Timer.h" />
     <ClInclude Include="Vector2f.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

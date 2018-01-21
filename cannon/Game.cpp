@@ -62,6 +62,8 @@ void Game::draw()
 
 void Game::run()
 {
+	bool spaceDown = false;
+
     //
     // main game loop
     //
@@ -71,10 +73,18 @@ void Game::run()
         sf::Event event;
         while (window.pollEvent(event))
         {
-
+			// SPACE key up
 			if (event.key.code == sf::Keyboard::Space && event.type == sf::Event::KeyReleased)
+			{
 				cannon.fire();
+				spaceDown = false;
+			}
 				
+			// SPACE key down (doesn't repeat)
+			if (event.key.code == sf::Keyboard::Space && event.type == sf::Event::KeyPressed && !spaceDown)
+			{
+				spaceDown = true;
+			}
 
             // Close window or hit escape to exit
             if ( (event.type == sf::Event::Closed) ||
