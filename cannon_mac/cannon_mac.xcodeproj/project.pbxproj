@@ -13,7 +13,6 @@
 		110463712004407D00117311 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 110463702004407D00117311 /* Game.cpp */; };
 		11046374200849DD00117311 /* Vector2f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11046373200849DD00117311 /* Vector2f.cpp */; };
 		11046376200B2B9400117311 /* CannonBall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11046375200B2B9400117311 /* CannonBall.cpp */; };
-		BF15836E2014049D00B803F8 /* fire.wav in Resources */ = {isa = PBXBuildFile; fileRef = BF15836D2014049D00B803F8 /* fire.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +29,6 @@
 		11046373200849DD00117311 /* Vector2f.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector2f.cpp; path = ../cannon/Vector2f.cpp; sourceTree = "<group>"; };
 		11046375200B2B9400117311 /* CannonBall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CannonBall.cpp; path = ../cannon/CannonBall.cpp; sourceTree = "<group>"; };
 		11046377200B2BA300117311 /* CannonBall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CannonBall.h; path = ../cannon/CannonBall.h; sourceTree = "<group>"; };
-		BF15836D2014049D00B803F8 /* fire.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fire.wav; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +142,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF15836E2014049D00B803F8 /* fire.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
