@@ -39,9 +39,6 @@ void Cannon::cannonSetup()
     getCannon().setSize( {getWidth(), getHeight()} );
     getCannon().setFillColor(sf::Color::White);
     
-    unsigned int i;   // we use 'unsigned' here to avoid compiler warning below
-    for (i = 0; i<cannonBallList.size(); i++)
-        cannonBallList.at(i).setup();
 }
 
 void Cannon::outerWheelSetup()
@@ -171,7 +168,6 @@ void Cannon:: setup(int w, int h)
     cannonSetup();
     outerWheelSetup();
     innerWheelSetup();
-    
     windowWidth = w;
     windowHeight = h;
 }
