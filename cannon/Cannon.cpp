@@ -19,32 +19,38 @@ Cannon::Cannon()
     speed = 10;
     rotationAmount = 5;
     angle = 0;
+    outerWheelRadius = 15;
+    innerWheelRadius = 8;
 }
 
-// private methods
 void Cannon::cannonSetup()
 {
+    int wheelsOffset = 15;    // origin and wheels are 15 over in x and y, from the center of the barrel
+    
     // set up cannon
     setX(500);
     setY(400);
     setWidth(100);
     setHeight(20);
-    getCannon().setOrigin(getWidth()/2,getHeight()/2);
+    
+    // set up cannon shape
+    getCannon().setOrigin(getWidth()/2+ wheelsOffset, getHeight()/2+ wheelsOffset);        // affects position and rotation
     getCannon().setPosition(getX(), getY());
     getCannon().setSize( {getWidth(), getHeight()} );
     getCannon().setFillColor(sf::Color::White);
+    
     unsigned int i;   // we use 'unsigned' here to avoid compiler warning below
     for (i = 0; i<cannonBallList.size(); i++)
-    cannonBallList.at(i).setup();
-    
+        cannonBallList.at(i).setup();
 }
 
 void Cannon::outerWheelSetup()
 {
     // set up ball shape
-    outerWheel.setX(getX());
-    outerWheel.setY(getY()-5);
+    outerWheel.setX(getX());    // set to the position of the cannon barrel (uses it's origin point)
+    outerWheel.setY(getY());
     outerWheel.setSize(15);
+    outerWheel.getCircle().setOrigin(outerWheel.getSize(), outerWheel.getSize());    // set origin to center of wheel
     outerWheel.getCircle().setPosition(outerWheel.getX(), outerWheel.getY());
     outerWheel.getCircle().setRadius(outerWheel.getSize());
     outerWheel.getCircle().setFillColor(sf::Color::Black);
@@ -54,9 +60,10 @@ void Cannon::outerWheelSetup()
 void Cannon::innerWheelSetup()
 {
     // set up ball shape
-    innerWheel.setX(getX()+7);
-    innerWheel.setY(getY()+3);
+    innerWheel.setX(getX());    // set to the position of the cannon barrel (uses it's origin point)
+    innerWheel.setY(getY());
     innerWheel.setSize(8);
+    innerWheel.getCircle().setOrigin(innerWheel.getSize(), innerWheel.getSize());    // set origin to center of wheel
     innerWheel.getCircle().setPosition(innerWheel.getX(), innerWheel.getY());
     innerWheel.getCircle().setRadius(innerWheel.getSize());
     innerWheel.getCircle().setFillColor(sf::Color::White);
@@ -137,9 +144,12 @@ void Cannon::moveRight()
     outerWheel.setY(outerWheel.getY());
     outerWheel.getCircle().setPosition(outerWheel.getX(), outerWheel.getY());
     
+    
     innerWheel.setX(innerWheel.getX()+speed);
     innerWheel.setY(innerWheel.getY());
     innerWheel.getCircle().setPosition(innerWheel.getX(), innerWheel.getY());
+   
+
     
     boundaryCheck();
     
@@ -177,8 +187,6 @@ void Cannon::update()
             cannonBallList.erase(cannonBallList.begin() + i);
         }
     }
-    
-    
 }
 
 void Cannon::fire()
@@ -189,7 +197,7 @@ void Cannon::fire()
     cannonBall.setEnabled(true);
     
 	//setting the cannonball position to cannons position
-	Vector2f pos = Vector2f(getX(), getY());
+	Vector2f pos = Vector2f(getX(), getY()-15);
 	cannonBall.setPosition(pos);
     
 	//set cannon velocity to cannon rotation angle
