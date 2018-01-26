@@ -19,6 +19,24 @@ void Game::setup()
 {
     window.setFramerateLimit(60);
     cannon.setup(windowWidth, windowHeight);
+    myFont.loadFromFile("assets/calibri.ttf");  // load the font
+    textSetup();
+}
+
+void Game::textSetup()
+{
+    shotsText.setFont(myFont);
+    shotsText.setPosition(10, 50);   // the Y should be at least 50
+    shotsText.setCharacterSize(35);
+    shotsText.setFillColor(sf::Color::White);
+    
+}
+
+void Game:: textLoad()
+{
+    char s[64];
+    sprintf(s, "Shots:%d", 10);
+    shotsText.setString(s);
 }
 
 void Game::update()
@@ -58,11 +76,15 @@ void Game::draw()
     
     // draw window
     window.display();
+    
+    //draw text
+    window.draw(shotsText);
 }
 
 void Game::run()
 {
 	bool spaceDown = false;
+    textLoad();
 
     //
     // main game loop

@@ -17,6 +17,9 @@ private:
     unsigned int windowWidth = 800;
     unsigned int windowHeight = 600;
     Cannon cannon;
+    sf::Font myFont;   // this var holds the font
+    sf::Text shotsText;   // this var holds the text string
+
     
     sf::RenderWindow window{ { windowWidth, windowHeight}, "Cannon" };
     
@@ -28,6 +31,8 @@ public:
     Game();
     void setup();
     void run();
+    void textSetup();
+    void textLoad();
    
     
 };
