@@ -35,7 +35,7 @@ void Sound::stop()
     sound.stop();
 }
 
-void Sound::setVolume()
+void Sound::setVolume(float volume)
 {
-    sound.setVolume(50);
+    sound.setVolume(volume);
 }

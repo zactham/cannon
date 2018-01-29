@@ -12,17 +12,17 @@
 class Sound
 {
 private:
-    Sound();
     sf::Sound sound;
     sf::SoundBuffer sb;
     
     
 public:
+    Sound();
     void load(std::string filename);
     void play();
     void pause();
     void stop();
-    void setVolume();
+    void setVolume(float volume);
     
 };
 

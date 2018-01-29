@@ -9,6 +9,7 @@
 #include "Cannon.h"
 #include <SFML/Graphics.hpp>
 #include "Vector2f.h"
+#include "Sound.h"
 // constructor
 Cannon::Cannon()
 {
@@ -38,6 +39,10 @@ void Cannon::cannonSetup()
     getCannon().setPosition(getX(), getY());
     getCannon().setSize( {getWidth(), getHeight()} );
     getCannon().setFillColor(sf::Color::White);
+    
+    //setup sound
+    s.load("assets/fire.wav");
+    
     
 }
 
@@ -203,6 +208,11 @@ void Cannon::fire()
     
     cannonBall.setVelocity(angle);
     cannonBallList.push_back(cannonBall);
+    
+    //plays the sound
+    s.play();
+    
+   
     
     
     

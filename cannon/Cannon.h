@@ -10,6 +10,7 @@
 #define Cannon_h
 #include "Circle.h"
 #include "CannonBall.h"
+#include "Sound.h"
 class Cannon
 {
 private:
@@ -28,6 +29,7 @@ private:
     int windowHeight = 0;
     int outerWheelRadius;
     int innerWheelRadius;
+    Sound s;
     
     //Methods in Cannon.cpp
     void cannonSetup();

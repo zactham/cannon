@@ -74,11 +74,11 @@ void Game::draw()
     //window.draw(ballShape.getBall());
     cannon.draw(window);
     
-    // draw window
-    window.display();
-    
     //draw text
     window.draw(shotsText);
+    
+    // draw window
+    window.display();
 }
 
 void Game::run()
