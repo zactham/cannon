@@ -15,9 +15,12 @@ Sound::Sound()
     
 }
 
-void Sound::load(std::string filename)
+bool Sound::load(std::string filename)
 {
-    sb.loadFromFile(filename);
+    bool status = sb.loadFromFile(filename);
+    sound.setBuffer(sb);
+    return status;//returns true on success
+    
 }
 
 void Sound::play()

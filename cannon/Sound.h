@@ -18,7 +18,7 @@ private:
     
 public:
     Sound();
-    void load(std::string filename);
+    bool load(std::string filename);
     void play();
     void pause();
     void stop();

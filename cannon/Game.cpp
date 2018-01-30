@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include "Game.h"
+#include "Timer.h"
 //Constructor
 Game::Game()
 {

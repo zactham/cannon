@@ -30,6 +30,7 @@
 		11046373200849DD00117311 /* Vector2f.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector2f.cpp; path = ../cannon/Vector2f.cpp; sourceTree = "<group>"; };
 		11046375200B2B9400117311 /* CannonBall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CannonBall.cpp; path = ../cannon/CannonBall.cpp; sourceTree = "<group>"; };
 		11046377200B2BA300117311 /* CannonBall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CannonBall.h; path = ../cannon/CannonBall.h; sourceTree = "<group>"; };
+		11770A2F20202202002621DF /* Timer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Timer.h; path = ../cannon/Timer.h; sourceTree = "<group>"; };
 		11DD95042018374800EDAE50 /* Sound.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Sound.h; path = ../cannon/Sound.h; sourceTree = "<group>"; };
 		11DD95052018377000EDAE50 /* Sound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sound.cpp; path = ../cannon/Sound.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -48,6 +49,7 @@
 		110138A51FFB475F0094F8CF = {
 			isa = PBXGroup;
 			children = (
+				11770A2F20202202002621DF /* Timer.h */,
 				11DD95052018377000EDAE50 /* Sound.cpp */,
 				11DD95042018374800EDAE50 /* Sound.h */,
 				11046375200B2B9400117311 /* CannonBall.cpp */,
