@@ -192,7 +192,7 @@ void Cannon::update()
 
 void Cannon::fire(float time)
 {
-   
+    time+=1;
     CannonBall cannonBall = *new CannonBall(windowWidth, windowHeight);
     cannonBall.setup();
     cannonBall.setEnabled(true);
@@ -204,7 +204,7 @@ void Cannon::fire(float time)
 	//set cannon velocity to cannon rotation angle
 	Vector2f angle;
 	angle.setFromAngle(getAngle());
-	angle.multiply(-4);//flip the angle to make it point left instead of right
+	angle.multiply(-(4*time));//flip the angle to make it point left instead of right
     
     cannonBall.setVelocity(angle);
     cannonBallList.push_back(cannonBall);
