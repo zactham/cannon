@@ -190,7 +190,7 @@ void Cannon::update()
     }
 }
 
-void Cannon::fire()
+void Cannon::fire(float time)
 {
    
     CannonBall cannonBall = *new CannonBall(windowWidth, windowHeight);

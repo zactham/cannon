@@ -10,6 +10,7 @@
 #define Game_h
 
 #include "Cannon.h"
+#include "Timer.h"
 
 
 class Game
@@ -20,6 +21,8 @@ private:
     Cannon cannon;
     sf::Font myFont;   // this var holds the font
     sf::Text shotsText;   // this var holds the text string
+    Timer timer;
+    float spacebarTime;
 
     
     sf::RenderWindow window{ { windowWidth, windowHeight}, "Cannon" };

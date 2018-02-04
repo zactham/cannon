@@ -36,7 +36,7 @@ void Game::textSetup()
 void Game:: textLoad()
 {
     char s[64];
-    sprintf(s, "Shots:%d", 10);
+    snprintf(s, 64, "Shots:%d", 10);
     shotsText.setString(s);
 }
 
@@ -84,6 +84,7 @@ void Game::draw()
 
 void Game::run()
 {
+    
 	bool spaceDown = false;
     textLoad();
 
@@ -99,13 +100,17 @@ void Game::run()
 			// SPACE key up
 			if (event.key.code == sf::Keyboard::Space && event.type == sf::Event::KeyReleased)
 			{
-				cannon.fire();
+                spacebarTime = timer.diff();
+                printf("%f", spacebarTime);
+				cannon.fire(spacebarTime);
 				spaceDown = false;
+                
 			}
 				
 			// SPACE key down (doesn't repeat)
 			if (event.key.code == sf::Keyboard::Space && event.type == sf::Event::KeyPressed && !spaceDown)
 			{
+                timer.reset();
 				spaceDown = true;
 			}
 

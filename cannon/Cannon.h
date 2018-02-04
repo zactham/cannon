@@ -51,7 +51,7 @@ public:
     void draw(sf::RenderWindow& window);
     void setup(int w, int h);
     void update();
-    void fire();
+    void fire(float time);
     
     
     
