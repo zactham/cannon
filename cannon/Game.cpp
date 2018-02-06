@@ -20,6 +20,7 @@ void Game::setup()
 {
     window.setFramerateLimit(60);
     cannon.setup(windowWidth, windowHeight);
+    ui.setup();
 }
 
 
@@ -61,6 +62,8 @@ void Game::draw()
     
     // draw window
     window.display();
+    
+    ui.draw(window);
 }
 
 void Game::run()

@@ -18,6 +18,7 @@ void UIManager::setup()
 {
     myFont.loadFromFile("assets/calibri.ttf");  // load the font
     textSetup();
+    textLoad();
     shotMeterSetup();
     
 
@@ -41,7 +42,6 @@ void UIManager::textLoad()
 
 void UIManager::shotMeterSetup()
 {
-    
     // set up cannon shape
     shotMeter.setOrigin(200, 25);        // affects position and rotation
     shotMeter.setPosition(200, 25);
@@ -62,6 +62,7 @@ void UIManager::draw(sf::RenderWindow& window)
 {
     //draw text
     window.draw(shotsText);
+    //draw shotmeter
     window.draw(shotMeter);
 
 }
