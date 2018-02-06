@@ -77,7 +77,7 @@ void Cannon::boundaryCheck()
     {
         setX(0 + getWidth()/2);
         outerWheel.setX(0 + getWidth()/2);
-        innerWheel.setX(0 + getWidth()/2+7);
+        innerWheel.setX(0 + getWidth()/2);
         
         getCannon().setPosition(getX(), getY());
         outerWheel.getCircle().setPosition(outerWheel.getX(), outerWheel.getY());
@@ -89,7 +89,7 @@ void Cannon::boundaryCheck()
     {
         setX(windowWidth-getWidth()/2);
         outerWheel.setX(windowWidth-getWidth()/2);
-        innerWheel.setX(windowWidth-getWidth()/2+7);
+        innerWheel.setX(windowWidth-getWidth()/2);
         
         getCannon().setPosition(getX(), getY());
         outerWheel.getCircle().setPosition(outerWheel.getX(), outerWheel.getY());
