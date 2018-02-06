@@ -29,6 +29,7 @@ class UIManager
         void setShotVelocity(float v);
         void setup();
         void draw(sf::RenderWindow& window);
+        void update();
     
     
 };

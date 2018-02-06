@@ -22,7 +22,7 @@ private:
     unsigned int windowHeight = 600;
     Cannon cannon;
     Timer timer;
-    float spacebarTime;
+    float spacebarTime = 0;
     UIManager ui;
         
     sf::RenderWindow window{ { windowWidth, windowHeight}, "Cannon" };

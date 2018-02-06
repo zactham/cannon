@@ -43,9 +43,9 @@ void UIManager::textLoad()
 void UIManager::shotMeterSetup()
 {
     // set up cannon shape
-    shotMeter.setOrigin(200, 100);        // affects position and rotation
-    shotMeter.setPosition(200, 100);
-    shotMeter.setSize( {25, (velocity+1)*2} );
+   /// shotMeter.setOrigin(800, 100);        // affects position and rotation
+    shotMeter.setPosition(700, 50);
+    shotMeter.setSize( {velocity*4, 20}  );
     shotMeter.setFillColor(sf::Color::White);
 }
 
@@ -58,6 +58,7 @@ void UIManager::setNumPlayerShots(int amount)
 
 void UIManager::setShotVelocity(float v)
 {
+    v+=2;
     velocity = v;
 }
 void UIManager::draw(sf::RenderWindow& window)
@@ -65,10 +66,14 @@ void UIManager::draw(sf::RenderWindow& window)
     //draw text
     window.draw(shotsText);
     //draw shotmeter
-    textLoad();
-	shotMeterSetup();
     window.draw(shotMeter);
 
+}
+
+void UIManager::update()
+{
+    textLoad();
+    shotMeterSetup();
 }
 
 

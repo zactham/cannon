@@ -48,6 +48,8 @@ void Game::update()
     }
 	cannon.update();
     ui.setNumPlayerShots(cannon.getShotAmount());
+    ui.setShotVelocity(spacebarTime);
+    ui.update();
     
 }
 
