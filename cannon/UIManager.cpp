@@ -43,8 +43,8 @@ void UIManager::textLoad()
 void UIManager::shotMeterSetup()
 {
     // set up cannon shape
-    shotMeter.setOrigin(200, 25);        // affects position and rotation
-    shotMeter.setPosition(200, 25);
+    shotMeter.setOrigin(200, 100);        // affects position and rotation
+    shotMeter.setPosition(200, 100);
     shotMeter.setSize( {25, (velocity+1)*2} );
     shotMeter.setFillColor(sf::Color::White);
 }
@@ -66,6 +66,7 @@ void UIManager::draw(sf::RenderWindow& window)
     window.draw(shotsText);
     //draw shotmeter
     textLoad();
+	shotMeterSetup();
     window.draw(shotMeter);
 
 }
