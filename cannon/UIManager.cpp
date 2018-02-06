@@ -51,6 +51,8 @@ void UIManager::shotMeterSetup()
 
 void UIManager::setNumPlayerShots(int amount)
 {
+    if(amount<0)
+        amount = 0;
     shotAmount = amount;
 }
 
@@ -63,6 +65,7 @@ void UIManager::draw(sf::RenderWindow& window)
     //draw text
     window.draw(shotsText);
     //draw shotmeter
+    textLoad();
     window.draw(shotMeter);
 
 }

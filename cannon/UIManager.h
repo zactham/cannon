@@ -12,8 +12,7 @@
 class UIManager
 {
     private:
-    
-    int shotAmount;
+    int shotAmount = 10;
     float velocity;
     sf::Font myFont;   // this var holds the font
     sf::Text shotsText;   // this var holds the text string

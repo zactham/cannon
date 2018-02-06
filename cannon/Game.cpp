@@ -59,11 +59,12 @@ void Game::draw()
     // update/draw objects
     //window.draw(ballShape.getBall());
     cannon.draw(window);
+    ui.draw(window);
     
     // draw window
     window.display();
     
-    ui.draw(window);
+   
 }
 
 void Game::run()
