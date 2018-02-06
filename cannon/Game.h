@@ -35,8 +35,7 @@ public:
     Game();
     void setup();
     void run();
-    void textSetup();
-    void textLoad();
+   
    
     
 };

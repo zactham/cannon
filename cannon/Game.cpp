@@ -67,7 +67,6 @@ void Game::run()
 {
     
 	bool spaceDown = false;
-    textLoad();
 
     //
     // main game loop
