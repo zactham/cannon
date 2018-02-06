@@ -202,15 +202,17 @@ void Cannon::fire(float time)
 	cannonBall.setPosition(pos);
     
 	//set cannon velocity to cannon rotation angle
-	Vector2f angle;
-	angle.setFromAngle(getAngle());
-	angle.multiply(-(4*time));//flip the angle to make it point left instead of right
+	Vector2f angleVec;
+	angleVec.setFromAngle(getAngle());
+	angleVec.multiply(-(4*time));//flip the angle to make it point left instead of right
     
-    cannonBall.setVelocity(angle);
+    cannonBall.setVelocity(angleVec);
     cannonBallList.push_back(cannonBall);
     
     //plays the sound
     s.play();
+    
+    shotAmount-=1;
     
    
     

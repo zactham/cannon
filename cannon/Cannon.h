@@ -29,6 +29,7 @@ private:
     int windowHeight = 0;
     int outerWheelRadius;
     int innerWheelRadius;
+    int shotAmount = 10;
     Sound s;
     
     //Methods in Cannon.cpp
@@ -94,6 +95,10 @@ public:
     float getAngle()
     {
         return angle;
+    }
+    int getShotAmount()
+    {
+        return shotAmount;
     }
     
     

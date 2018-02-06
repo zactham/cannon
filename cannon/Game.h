@@ -11,20 +11,20 @@
 
 #include "Cannon.h"
 #include "Timer.h"
+#include "UIManager.h"
 
 
 class Game
 {
+    
 private:
     unsigned int windowWidth = 800;
     unsigned int windowHeight = 600;
     Cannon cannon;
-    sf::Font myFont;   // this var holds the font
-    sf::Text shotsText;   // this var holds the text string
     Timer timer;
     float spacebarTime;
-
-    
+    UIManager ui;
+        
     sf::RenderWindow window{ { windowWidth, windowHeight}, "Cannon" };
     
     void update();

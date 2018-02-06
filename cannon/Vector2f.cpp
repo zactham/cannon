@@ -90,7 +90,7 @@ void Vector2f::normalize()
 
 void Vector2f::setFromAngle(float angle)
 {
-   float radian = angle * M_PI / 180;
+   float radian = (float)(angle * M_PI / 180.f);
     setX(cosf(radian));
     setY(sinf(radian));
     
