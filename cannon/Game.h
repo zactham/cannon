@@ -29,6 +29,7 @@ private:
     
     void update();
     void draw();
+    bool spaceDown = false;
     
     
 public:

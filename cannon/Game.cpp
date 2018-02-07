@@ -48,8 +48,13 @@ void Game::update()
     }
 	cannon.update();
     ui.setNumPlayerShots(cannon.getShotAmount());
+    if(spaceDown)
+        spacebarTime = timer.diff();
+    else
+        spacebarTime = 0;
     ui.setShotVelocity(spacebarTime);
     ui.update();
+   
     
 }
 
@@ -71,9 +76,6 @@ void Game::draw()
 
 void Game::run()
 {
-    
-	bool spaceDown = false;
-
     //
     // main game loop
     //
@@ -86,10 +88,11 @@ void Game::run()
 			// SPACE key up
 			if (event.key.code == sf::Keyboard::Space && event.type == sf::Event::KeyReleased)
 			{
-                spacebarTime = timer.diff();
                 printf("%f", spacebarTime);
 				cannon.fire(spacebarTime);
 				spaceDown = false;
+               
+
                 
 			}
 				
@@ -98,6 +101,8 @@ void Game::run()
 			{
                 timer.reset();
 				spaceDown = true;
+                
+               
 			}
 
             // Close window or hit escape to exit
