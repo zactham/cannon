@@ -204,7 +204,7 @@ void Cannon::fire(float time)
 	//set cannon velocity to cannon rotation angle
 	Vector2f angleVec;
 	angleVec.setFromAngle(getAngle());
-	angleVec.multiply(-(5*time));//flip the angle to make it point left instead of right
+	angleVec.multiply(-(3*time));//flip the angle to make it point left instead of right
     
     cannonBall.setVelocity(angleVec);
     cannonBallList.push_back(cannonBall);
