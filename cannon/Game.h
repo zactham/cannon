@@ -21,8 +21,11 @@ private:
     unsigned int windowWidth = 800;
     unsigned int windowHeight = 600;
     Cannon cannon;
+    Cannon cannon2;
     Timer timer;
+    Timer timer2;
     float spacebarTime = 0;
+    float tabTime = 0;
     UIManager ui;
         
     sf::RenderWindow window{ { windowWidth, windowHeight}, "Cannon" };
@@ -30,6 +33,7 @@ private:
     void update();
     void draw();
     bool spaceDown = false;
+    bool tabDown = false;
     
     
 public:

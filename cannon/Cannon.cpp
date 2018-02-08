@@ -46,6 +46,30 @@ void Cannon::cannonSetup()
     
 }
 
+void Cannon::cannon2Setup()
+{
+    int wheelsOffset = 15;    // origin and wheels are 15 over in x and y, from the center of the barrel
+    
+    // set up cannon
+    setX(200);
+    setY(400);
+    setWidth(100);
+    setHeight(20);
+    
+    // set up cannon shape
+    getCannon().setOrigin(getWidth()/2+ wheelsOffset, getHeight()/2+ wheelsOffset);        // affects position and rotation
+    getCannon().setPosition(getX(), getY());
+    getCannon().setSize( {getWidth(), getHeight()} );
+    getCannon().setFillColor(sf::Color::Blue);
+    
+    //setup sound
+    s.load("assets/fire.wav");
+    
+    
+}
+
+
+
 void Cannon::outerWheelSetup()
 {
     // set up ball shape
@@ -168,9 +192,12 @@ void Cannon::draw(sf::RenderWindow& window)
     
 }
 
-void Cannon:: setup(int w, int h)
+void Cannon:: setup(int w, int h, int cannonNum)
 {
-    cannonSetup();
+    if(cannonNum == 1)
+        cannonSetup();
+    else if(cannonNum == 2)
+        cannon2Setup();
     outerWheelSetup();
     innerWheelSetup();
     windowWidth = w;

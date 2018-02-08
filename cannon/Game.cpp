@@ -19,8 +19,10 @@ Game::Game()
 void Game::setup()
 {
     window.setFramerateLimit(60);
-    cannon.setup(windowWidth, windowHeight);
+    cannon.setup(windowWidth, windowHeight, 1);
+    cannon2.setup(windowWidth, windowHeight, 2);
     ui.setup();
+    ui.setup2();
 }
 
 
@@ -46,14 +48,48 @@ void Game::update()
         cannon.moveRight();
         
     }
+    
+    //Cannon 2
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+    {
+        cannon2.aimUp();
+        
+    }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+    {
+        cannon2.aimDown();
+    }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+    {
+        
+        cannon2.moveLeft();
+        
+    }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+    {
+        cannon2.moveRight();
+        
+    }
 	cannon.update();
+    cannon2.update();
+    
     ui.setNumPlayerShots(cannon.getShotAmount());
+    ui.setNumPlayerShots2(cannon2.getShotAmount());
+    
     if(spaceDown)
         spacebarTime = timer.diff();
     else
         spacebarTime = 0;
+    
+    if(tabDown)
+        tabTime = timer2.diff();
+    else
+        tabTime = 0;
+    
+
     ui.setShotVelocity(spacebarTime);
     ui.update();
+    ui.setShotVelocity2(tabTime);
    
     
 }
@@ -66,6 +102,7 @@ void Game::draw()
     // update/draw objects
     //window.draw(ballShape.getBall());
     cannon.draw(window);
+    cannon2.draw(window);
     ui.draw(window);
     
     // draw window
@@ -104,6 +141,26 @@ void Game::run()
                 
                
 			}
+            
+            // TAB key up
+            if (event.key.code == sf::Keyboard::Tab && event.type == sf::Event::KeyReleased)
+            {
+                printf("%f", tabTime);
+                cannon2.fire(tabTime);
+                tabDown = false;
+                
+                
+                
+            }
+            
+            // SPACE key down (doesn't repeat)
+            if (event.key.code == sf::Keyboard::Tab && event.type == sf::Event::KeyPressed && !tabDown)
+            {
+                timer2.reset();
+                tabDown = true;
+                
+                
+            }
 
             // Close window or hit escape to exit
             if ( (event.type == sf::Event::Closed) ||

@@ -34,6 +34,7 @@ private:
     
     //Methods in Cannon.cpp
     void cannonSetup();
+    void cannon2Setup();
     void outerWheelSetup();
     void innerWheelSetup();
     void boundaryCheck();
@@ -50,7 +51,7 @@ public:
     void moveLeft();
     void moveRight();
     void draw(sf::RenderWindow& window);
-    void setup(int w, int h);
+    void setup(int w, int h, int cannonNum);
     void update();
     void fire(float time);
     
