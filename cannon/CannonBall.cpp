@@ -41,9 +41,16 @@ void CannonBall::update()
     {
         Vector2f newPos = position;
         newPos.add(velocity);
-		if (newPos.getX() + getRadius() <= 0 || newPos.getX() + getRadius() >= getWindowWidth() || newPos.getY() + getRadius() >= getWindowHeight())
-          velocity.multiply(-1);
         
+        //bottom
+        if( newPos.getY() + getRadius() >= getWindowHeight())
+            setEnabled(false);
+        
+        //sides
+		if (newPos.getX() + getRadius() <= 0 || newPos.getX() + getRadius() >= getWindowWidth())
+            velocity.multiply(-1);
+        
+        //top
         if (newPos.getY() + getRadius() < (-10) )
            velocity.multiply(-1);
         

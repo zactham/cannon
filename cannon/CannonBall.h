@@ -14,6 +14,7 @@ class CannonBall
 {
 private:
     sf::CircleShape shape;
+    sf::CircleShape rect;
     Vector2f position;
     Vector2f velocity;
     float radius;
