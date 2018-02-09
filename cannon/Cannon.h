@@ -53,7 +53,7 @@ public:
     void draw(sf::RenderWindow& window);
     void setup(int w, int h, int cannonNum);
     void update();
-    void fire(float time);
+    void fire(float time, int cannonNum);
     
     
     

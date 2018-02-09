@@ -41,13 +41,19 @@ void CannonBall::update()
     {
         Vector2f newPos = position;
         newPos.add(velocity);
-		if (newPos.getX() + getRadius() <= 0 || newPos.getX() + getRadius() >= getWindowWidth() || newPos.getY() + getRadius() <= 0 || newPos.getY() + getRadius() >= getWindowHeight())
-			enabled = false;
+		if (newPos.getX() + getRadius() <= 0 || newPos.getX() + getRadius() >= getWindowWidth() || newPos.getY() + getRadius() >= getWindowHeight())
+            setEnabled(false);
+        
+        if (newPos.getY() + getRadius() < (-5) )
+           velocity.multiply(-1);
+        
+			
 		setPosition(newPos);
         Vector2f gravity = Vector2f(0,0.03f);
         velocity.add(gravity);
 		
     }
+    
 
 }
 
@@ -92,15 +98,22 @@ int CannonBall::getWindowHeight()
     return windowHeight;
 }
 
-void CannonBall::setup()
+void CannonBall::setup(int cannonNum)
 {
-	setEnabled(false);
+	if(cannonNum == 1)
+         shape.setFillColor(sf::Color::White);
+    else if(cannonNum == 2)
+        shape.setFillColor(sf::Color::Blue);
+        
+    setEnabled(false);
     setWindowWidth(windowWidth);
     setWindowHeight(windowHeight);
-    shape.setFillColor(sf::Color::White);
     setRadius(5);
     
 }
+
+
+
 
 void CannonBall::setVelocity(Vector2f v)
 {

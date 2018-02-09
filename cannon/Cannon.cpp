@@ -217,11 +217,11 @@ void Cannon::update()
     }
 }
 
-void Cannon::fire(float time)
+void Cannon::fire(float time, int cannonNum)
 {
     time+=1;
     CannonBall cannonBall = *new CannonBall(windowWidth, windowHeight);
-    cannonBall.setup();
+    cannonBall.setup(cannonNum);
     cannonBall.setEnabled(true);
     
 	//setting the cannonball position to cannons position

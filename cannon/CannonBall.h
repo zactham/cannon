@@ -35,7 +35,7 @@ public:
 	int getWindowWidth();
     void setWindowHeight(int h);
 	int getWindowHeight();
-    void setup();
+    void setup(int i);
 	void setVelocity(Vector2f v);
 	Vector2f& getVelocity();
 	void setPosition(Vector2f p);

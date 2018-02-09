@@ -126,7 +126,7 @@ void Game::run()
 			if (event.key.code == sf::Keyboard::Space && event.type == sf::Event::KeyReleased)
 			{
                 printf("%f", spacebarTime);
-				cannon.fire(spacebarTime);
+				cannon.fire(spacebarTime, 1);
 				spaceDown = false;
                
 
@@ -146,7 +146,7 @@ void Game::run()
             if (event.key.code == sf::Keyboard::Tab && event.type == sf::Event::KeyReleased)
             {
                 printf("%f", tabTime);
-                cannon2.fire(tabTime);
+                cannon2.fire(tabTime, 2);
                 tabDown = false;
                 
                 
