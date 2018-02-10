@@ -70,8 +70,8 @@ void Game::update()
         cannon2.moveRight();
         
     }
-	cannon.update();
-    cannon2.update();
+	cannon.update(1);
+    cannon2.update(2);
     
     ui.setNumPlayerShots(cannon.getShotAmount());
     ui.setNumPlayerShots2(cannon2.getShotAmount());
@@ -101,8 +101,8 @@ void Game::draw()
     
     // update/draw objects
     //window.draw(ballShape.getBall());
-    cannon.draw(window);
-    cannon2.draw(window);
+    cannon.draw(window, 1);
+    cannon2.draw(window, 2);
     ui.draw(window);
     
     // draw window

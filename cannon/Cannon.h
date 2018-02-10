@@ -11,11 +11,13 @@
 #include "Circle.h"
 #include "CannonBall.h"
 #include "Sound.h"
+#include "Missile.h"
 class Cannon
 {
 private:
     sf::RectangleShape cannonShape;//barrel
     std::vector<CannonBall> cannonBallList;
+    std::vector<Missile> missileList;
     Circle outerWheel;
     Circle innerWheel;
     float cannonX;
@@ -50,9 +52,9 @@ public:
     void aimDown();
     void moveLeft();
     void moveRight();
-    void draw(sf::RenderWindow& window);
+    void draw(sf::RenderWindow& window, int cannonNum);
     void setup(int w, int h, int cannonNum);
-    void update();
+    void update(int cannonNum);
     void fire(float time, int cannonNum);
     
     

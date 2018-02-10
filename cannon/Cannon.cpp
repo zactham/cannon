@@ -181,14 +181,23 @@ void Cannon::moveRight()
     
 }
 
-void Cannon::draw(sf::RenderWindow& window)
+void Cannon::draw(sf::RenderWindow& window, int cannonNum)
 {
     window.draw(getCannon());
     window.draw(outerWheel.getCircle());
     window.draw(innerWheel.getCircle());
-    unsigned int i;   // we use 'unsigned' here to avoid compiler warning below
-    for (i = 0; i<cannonBallList.size(); i++)
-        cannonBallList.at(i).draw(window);
+    if (cannonNum == 1)
+    {
+        unsigned int i;   // we use 'unsigned' here to avoid compiler warning below
+        for (i = 0; i<cannonBallList.size(); i++)
+            cannonBallList.at(i).draw(window);
+    }
+    else if (cannonNum == 2)
+    {
+        unsigned int i;   // we use 'unsigned' here to avoid compiler warning below
+        for (i = 0; i<missileList.size(); i++)
+            missileList.at(i).draw(window);
+    }
     
 }
 
@@ -204,48 +213,85 @@ void Cannon:: setup(int w, int h, int cannonNum)
     windowHeight = h;
 }
 
-void Cannon::update()
+void Cannon::update(int cannonNum)
 {
-    unsigned int i;   // we use 'unsigned' here to avoid compiler warning below
-    for (i = 0; i<cannonBallList.size(); i++)
+    if(cannonNum == 1)
     {
-        cannonBallList.at(i).update();
-        if(cannonBallList.at(i).getEnabled() == false)
+            unsigned int i;   // we use 'unsigned' here to avoid compiler warning below
+            for (i = 0; i<cannonBallList.size(); i++)
+            {
+                cannonBallList.at(i).update();
+                if(cannonBallList.at(i).getEnabled() == false)
+                {
+                    cannonBallList.erase(cannonBallList.begin() + i);
+                }
+            }
+    }
+    else if (cannonNum == 2)
+    {
+        unsigned int i;   // we use 'unsigned' here to avoid compiler warning below
+        for (i = 0; i<missileList.size(); i++)
         {
-            cannonBallList.erase(cannonBallList.begin() + i);
+            missileList.at(i).update();
+            if(missileList.at(i).getEnabled() == false)
+            {
+                missileList.erase(missileList.begin() + i);
+            }
         }
     }
 }
 
 void Cannon::fire(float time, int cannonNum)
 {
-    time+=1;
-    CannonBall cannonBall = *new CannonBall(windowWidth, windowHeight);
-    cannonBall.setup(cannonNum);
-    cannonBall.setEnabled(true);
+    if(cannonNum == 1)
+    {
+        time+=1;
+        CannonBall cannonBall = *new CannonBall(windowWidth, windowHeight);
+        cannonBall.setup();
+        cannonBall.setEnabled(true);
     
-	//setting the cannonball position to cannons position
-	Vector2f pos = Vector2f(getX(), getY()-15);
-	cannonBall.setPosition(pos);
+        //setting the cannonball position to cannons position
+        Vector2f pos = Vector2f(getX(), getY()-15);
+        cannonBall.setPosition(pos);
     
-	//set cannon velocity to cannon rotation angle
-	Vector2f angleVec;
-	angleVec.setFromAngle(getAngle());
-	angleVec.multiply(-(3*time));//flip the angle to make it point left instead of right
+        //set cannon velocity to cannon rotation angle
+        Vector2f angleVec;
+        angleVec.setFromAngle(getAngle());
+        angleVec.multiply(-(3*time));//flip the angle to make it point left instead of right
     
-    cannonBall.setVelocity(angleVec);
-    cannonBallList.push_back(cannonBall);
+        cannonBall.setVelocity(angleVec);
+        cannonBallList.push_back(cannonBall);
     
-    //plays the sound
-    s.play();
+        //plays the sound
+        s.play();
     
-    shotAmount-=1;
+        shotAmount-=1;
     
-    
-   
-    
-    
-    
+    }
+    else if (cannonNum == 2)
+    {
+        time+=1;
+        Missile missile = *new Missile(windowWidth, windowHeight);
+        missile.setup();
+        missile.setEnabled(true);
+        
+        //setting the position to cannons position
+        Vector2f pos = Vector2f(getX(), getY()-15);
+        missile.setPosition(pos);
+        
+        //set velocity to missile rotation angle
+        Vector2f angleVec;
+        angleVec.setFromAngle(getAngle());
+        angleVec.multiply(-(3*time));//flip the angle to make it point left instead of right
+        
+        missile.setVelocity(angleVec);
+        missileList.push_back(missile);
+        
+        //plays the sound
+         s.play();
+        
+        shotAmount-=1;
+    }
     
 }
 

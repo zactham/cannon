@@ -100,13 +100,9 @@ int CannonBall::getWindowHeight()
     return windowHeight;
 }
 
-void CannonBall::setup(int cannonNum)
+void CannonBall::setup()
 {
-	if(cannonNum == 1)
-         shape.setFillColor(sf::Color::White);
-    else if(cannonNum == 2)
-        shape.setFillColor(sf::Color::Blue);
-        
+    shape.setFillColor(sf::Color::White);
     setEnabled(false);
     setWindowWidth(windowWidth);
     setWindowHeight(windowHeight);
