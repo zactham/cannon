@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include "Missile.h"
 #include <SFML/Graphics.hpp>
+#define _USE_MATH_DEFINES
 #include "math.h"
 
 

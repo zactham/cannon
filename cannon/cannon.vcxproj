@@ -84,6 +84,7 @@
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Missile.cpp" />
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="UIManager.cpp" />
     <ClCompile Include="Vector2f.cpp" />
@@ -93,6 +94,7 @@
     <ClInclude Include="CannonBall.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Missile.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="UIManager.h" />
