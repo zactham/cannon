@@ -50,9 +50,9 @@ void Missile::update()
         
         //sides
         if (newPos.getX() + getWidth() <= 0 || newPos.getX() + getWidth() >= getWindowWidth())
-            velocity.multiply(-1);
+            velocity.setX(velocity.getX()*-1);
         
-        shape.rotate(angleRotate());
+        shape.setRotation(angleRotate());
         
         setPosition(newPos);
         Vector2f gravity = Vector2f(0,0.03f);
@@ -67,6 +67,12 @@ float Missile::angleRotate()
     float hypotenuse = sqrtf(velocity.getX()*velocity.getX() + velocity.getY()*velocity.getY());
     float angleRadian = acosf(adjacentSide/hypotenuse);
     float angleDegrees = (float)(angleRadian * (180/M_PI));
+    
+    printf("angle =%f\n ", angleDegrees);
+    
+    if(velocity.getY() < 0)
+        angleDegrees*=-1;
+    
     
     return angleDegrees;
 }
