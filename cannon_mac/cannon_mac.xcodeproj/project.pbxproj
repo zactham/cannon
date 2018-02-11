@@ -15,6 +15,7 @@
 		11046376200B2B9400117311 /* CannonBall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11046375200B2B9400117311 /* CannonBall.cpp */; };
 		11175F8E2029128F000185BB /* UIManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11175F8D2029128F000185BB /* UIManager.cpp */; };
 		11175F96202F8116000185BB /* Missile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11175F95202F8116000185BB /* Missile.cpp */; };
+		11175F982030C83D000185BB /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11175F972030C83D000185BB /* Sprite.cpp */; };
 		11DD95072018377000EDAE50 /* Sound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 11DD95052018377000EDAE50 /* Sound.cpp */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,8 @@
 		11175F8D2029128F000185BB /* UIManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UIManager.cpp; path = ../cannon/UIManager.cpp; sourceTree = "<group>"; };
 		11175F94202F80E5000185BB /* Missile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Missile.h; path = ../cannon/Missile.h; sourceTree = "<group>"; };
 		11175F95202F8116000185BB /* Missile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Missile.cpp; path = ../cannon/Missile.cpp; sourceTree = "<group>"; };
+		11175F972030C83D000185BB /* Sprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sprite.cpp; path = ../cannon/Sprite.cpp; sourceTree = "<group>"; };
+		11175F992030C84C000185BB /* Sprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Sprite.h; path = ../cannon/Sprite.h; sourceTree = "<group>"; };
 		11770A2F20202202002621DF /* Timer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Timer.h; path = ../cannon/Timer.h; sourceTree = "<group>"; };
 		11DD95042018374800EDAE50 /* Sound.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Sound.h; path = ../cannon/Sound.h; sourceTree = "<group>"; };
 		11DD95052018377000EDAE50 /* Sound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sound.cpp; path = ../cannon/Sound.cpp; sourceTree = "<group>"; };
@@ -55,6 +58,8 @@
 		110138A51FFB475F0094F8CF = {
 			isa = PBXGroup;
 			children = (
+				11175F972030C83D000185BB /* Sprite.cpp */,
+				11175F992030C84C000185BB /* Sprite.h */,
 				11175F8D2029128F000185BB /* UIManager.cpp */,
 				11175F8A2029050A000185BB /* UIManager.h */,
 				11770A2F20202202002621DF /* Timer.h */,
@@ -187,6 +192,7 @@
 			files = (
 				1104636D20043E4E00117311 /* Cannon.cpp in Sources */,
 				11046376200B2B9400117311 /* CannonBall.cpp in Sources */,
+				11175F982030C83D000185BB /* Sprite.cpp in Sources */,
 				110138C81FFB48370094F8CF /* main.cpp in Sources */,
 				11175F96202F8116000185BB /* Missile.cpp in Sources */,
 				1104636A20043D9500117311 /* Circle.cpp in Sources */,

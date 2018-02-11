@@ -23,6 +23,7 @@ void Game::setup()
     cannon2.setup(windowWidth, windowHeight, 2);
     ui.setup();
     ui.setup2();
+    ufo.setup("assets/ufo.png");
 }
 
 
@@ -105,8 +106,13 @@ void Game::draw()
     cannon2.draw(window, 2);
     ui.draw(window);
     
+    //draws ufo sprite
+    ufo.draw(window);
+    
     // draw window
     window.display();
+    
+  
     
    
 }

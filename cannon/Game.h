@@ -12,6 +12,7 @@
 #include "Cannon.h"
 #include "Timer.h"
 #include "UIManager.h"
+#include "Sprite.h"
 
 
 class Game
@@ -34,6 +35,7 @@ private:
     void draw();
     bool spaceDown = false;
     bool tabDown = false;
+    Sprite ufo;
     
     
 public:
