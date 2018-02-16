@@ -273,7 +273,11 @@ void Cannon::fire(float time, int cannonNum)
         //set cannon velocity to cannon rotation angle
         Vector2f angleVec;
         angleVec.setFromAngle(getAngle());
-        angleVec.multiply(-(3*time));//flip the angle to make it point left instead of right
+        
+        if(cannonAimedRight)
+            angleVec.multiply((3*time));//flip the angle to make it point left instead of right
+        else
+            angleVec.multiply(-(3*time));//flip the angle to make it point left instead of right
     
         cannonBall.setVelocity(angleVec);
         cannonBallList.push_back(cannonBall);
@@ -298,7 +302,11 @@ void Cannon::fire(float time, int cannonNum)
         //set velocity to missile rotation angle
         Vector2f angleVec;
         angleVec.setFromAngle(getAngle());
-        angleVec.multiply(-(3*time));//flip the angle to make it point left instead of right
+        if(cannonAimedRight)
+            angleVec.multiply((3*time));//flip the angle to make it point left instead of right
+        else
+            angleVec.multiply(-(3*time));//flip the angle to make it point left instead of right
+
         
         missile.setVelocity(angleVec);
         missileList.push_back(missile);
@@ -313,6 +321,9 @@ void Cannon::fire(float time, int cannonNum)
 
 void Cannon::flip(int cannonNum)
 {
+    setAngle(0);
+    getCannon().setRotation(getAngle());
+    
         if(rightFlipped)
         {
             getCannon().setOrigin(getWidth()/2 - wheelsOffset, getHeight()/2+ wheelsOffset); // affects position and rotation
