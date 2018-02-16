@@ -33,6 +33,10 @@ private:
     int innerWheelRadius;
     int shotAmount = 10;
     Sound s;
+    bool rightFlipped = true;
+    bool cannonAimedRight = false;
+    int wheelsOffset = 15;  
+    
     
     //Methods in Cannon.cpp
     void cannonSetup();
@@ -56,6 +60,7 @@ public:
     void setup(int w, int h, int cannonNum);
     void update(int cannonNum);
     void fire(float time, int cannonNum);
+    void flip(int cannonNum);
     
     
     

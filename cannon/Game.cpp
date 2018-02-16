@@ -49,7 +49,8 @@ void Game::update()
         cannon.moveRight();
         
     }
-    
+
+
     //Cannon 2
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
     {
@@ -128,14 +129,27 @@ void Game::run()
         sf::Event event;
         while (window.pollEvent(event))
         {
+            
+            
+            if(event.key.code == sf::Keyboard::LShift && event.type == sf::Event::KeyReleased)
+            {
+                cannon2.flip(2);
+                
+            }
+            
+            if(event.key.code == sf::Keyboard::RShift && event.type == sf::Event::KeyReleased)
+            {
+
+                cannon.flip(1);
+                
+            }
+            
 			// SPACE key up
 			if (event.key.code == sf::Keyboard::Space && event.type == sf::Event::KeyReleased)
 			{
                 printf("%f", spacebarTime);
 				cannon.fire(spacebarTime, 1);
 				spaceDown = false;
-               
-
                 
 			}
 				
@@ -144,8 +158,6 @@ void Game::run()
 			{
                 timer.reset();
 				spaceDown = true;
-                
-               
 			}
             
             // TAB key up
@@ -154,9 +166,6 @@ void Game::run()
                 printf("%f", tabTime);
                 cannon2.fire(tabTime, 2);
                 tabDown = false;
-                
-                
-                
             }
             
             // SPACE key down (doesn't repeat)
@@ -164,8 +173,6 @@ void Game::run()
             {
                 timer2.reset();
                 tabDown = true;
-                
-                
             }
 
             // Close window or hit escape to exit

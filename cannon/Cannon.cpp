@@ -22,11 +22,13 @@ Cannon::Cannon()
     angle = 0;
     outerWheelRadius = 15;
     innerWheelRadius = 8;
+    rightFlipped = true;
+    cannonAimedRight = false;
 }
 
 void Cannon::cannonSetup()
 {
-    int wheelsOffset = 15;    // origin and wheels are 15 over in x and y, from the center of the barrel
+    wheelsOffset = 15;    // origin and wheels are 15 over in x and y, from the center of the barrel
     
     // set up cannon
     setX(500);
@@ -48,7 +50,7 @@ void Cannon::cannonSetup()
 
 void Cannon::cannon2Setup()
 {
-    int wheelsOffset = 15;    // origin and wheels are 15 over in x and y, from the center of the barrel
+    wheelsOffset = 15;    // origin and wheels are 15 over in x and y, from the center of the barrel
     
     // set up cannon
     setX(200);
@@ -126,20 +128,34 @@ void Cannon::boundaryCheck()
 //public methods
 void Cannon::aimUp()
 {
-    if(getAngle() + rotationAmount >= 0 && getAngle() +rotationAmount <= 75)
+    if(!cannonAimedRight && getAngle() + rotationAmount >= 0 && getAngle() +rotationAmount <= 75)
     {
         setAngle(getAngle()+rotationAmount);
-        getCannon().setRotation(getAngle());
     }
+    
+    if(cannonAimedRight && getAngle() - rotationAmount >= -75 && getAngle() - rotationAmount <= 0)
+    {
+        setAngle(getAngle()-rotationAmount);
+    }
+    
+    getCannon().setRotation(getAngle());
+        
 }
 
 void Cannon::aimDown()
 {
-    if(getAngle() - rotationAmount >= 0 && getAngle() - rotationAmount <= 75)
+    if(!cannonAimedRight && getAngle() - rotationAmount >= 0 && getAngle() - rotationAmount <= 75)
     {
         setAngle(getAngle()-rotationAmount);
-        getCannon().setRotation(getAngle());
     }
+    
+    if (cannonAimedRight && getAngle() + rotationAmount >= -75 && getAngle() + rotationAmount <= 0)
+    {
+        printf("Aim Down flipped");
+        setAngle(getAngle()+rotationAmount);
+    }
+    
+     getCannon().setRotation(getAngle());
 }
 void Cannon::moveLeft()
 {
@@ -292,6 +308,23 @@ void Cannon::fire(float time, int cannonNum)
         
         shotAmount-=1;
     }
+    
+}
+
+void Cannon::flip(int cannonNum)
+{
+        if(rightFlipped)
+        {
+            getCannon().setOrigin(getWidth()/2 - wheelsOffset, getHeight()/2+ wheelsOffset); // affects position and rotation
+            cannonAimedRight = true;
+            rightFlipped = false;
+        }
+        else
+        {
+            getCannon().setOrigin(getWidth()/2+ wheelsOffset, getHeight()/2+ wheelsOffset); // affects position and rotation
+            cannonAimedRight = false;
+            rightFlipped = true;
+        }
     
 }
 
