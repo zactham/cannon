@@ -23,13 +23,20 @@ void Sprite::setup(std::string filename)
     sprite.setTexture(texture);
     sprite.setColor(sf::Color(255, 255, 255, 200));
     
-    // set the scale and position
-    sprite.setPosition(100, 100);
-    sprite.setScale(.2f, .2f);
-
+    
 }
 
 void Sprite::draw(sf::RenderWindow& window)
 {
     window.draw(sprite);
+}
+
+void Sprite::position()
+{
+    sprite.setPosition(100, 100);
+}
+
+void Sprite::scale()
+{
+    sprite.setScale(.2f, .2f);
 }

@@ -20,6 +20,9 @@ class Sprite
         Sprite();
         void setup(std::string filename);
         void draw(sf::RenderWindow& window);
+        void position();
+        void scale();
+    
 };
 
 
