@@ -79,6 +79,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bounds.cpp" />
     <ClCompile Include="Cannon.cpp" />
     <ClCompile Include="CannonBall.cpp" />
     <ClCompile Include="Circle.cpp" />
@@ -91,6 +92,7 @@
     <ClCompile Include="Vector2f.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bounds.h" />
     <ClInclude Include="Cannon.h" />
     <ClInclude Include="CannonBall.h" />
     <ClInclude Include="Circle.h" />
