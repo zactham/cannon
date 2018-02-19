@@ -319,7 +319,7 @@ void Cannon::fire(float time, int cannonNum)
     
 }
 
-void Cannon::flip(int cannonNum)
+void Cannon::flip()
 {
     setAngle(0);
     getCannon().setRotation(getAngle());

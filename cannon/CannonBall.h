@@ -10,6 +10,7 @@
 #define CannonBall_h
 #include "Vector2f.h"
 #include <SFML/Graphics.hpp>
+#include "Bounds.h"
 class CannonBall
 {
 private:
@@ -21,7 +22,8 @@ private:
     bool enabled;
 	int windowWidth;
 	int windowHeight;
-    
+    Bounds bounds;
+        
     
 public:
     CannonBall(int w, int h);
@@ -41,6 +43,7 @@ public:
 	Vector2f& getVelocity();
 	void setPosition(Vector2f p);
 	Vector2f&getPosition();
+   
   
 
     

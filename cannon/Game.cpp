@@ -24,6 +24,7 @@ void Game::setup()
     ui.setup();
     ui.setup2();
     ufo.setup("assets/ufo.png");
+    ufo.scale(0.5);
 }
 
 
@@ -133,14 +134,14 @@ void Game::run()
             
             if(event.key.code == sf::Keyboard::LShift && event.type == sf::Event::KeyReleased)
             {
-                cannon2.flip(2);
+                cannon2.flip();
                 
             }
             
             if(event.key.code == sf::Keyboard::RShift && event.type == sf::Event::KeyReleased)
             {
 
-                cannon.flip(1);
+                cannon.flip();
                 
             }
             

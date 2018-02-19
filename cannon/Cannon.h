@@ -60,7 +60,7 @@ public:
     void setup(int w, int h, int cannonNum);
     void update(int cannonNum);
     void fire(float time, int cannonNum);
-    void flip(int cannonNum);
+    void flip();
     
     
     

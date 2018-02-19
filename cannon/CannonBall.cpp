@@ -30,6 +30,7 @@ void CannonBall::draw(sf::RenderWindow& window)
 	if (enabled)
 	{
 		shape.setPosition(getPosition().getX(), getPosition().getY());
+        bounds.drawBounds(window);
 		window.draw(shape);
     }
      
@@ -53,6 +54,8 @@ void CannonBall::update()
 		setPosition(newPos);
         Vector2f gravity = Vector2f(0,0.03f);
         velocity.add(gravity);
+        
+        bounds.update(getPosition().getX(), getPosition().getY(), getRadius());
 		
     }
     
@@ -107,6 +110,9 @@ void CannonBall::setup()
     setWindowWidth(windowWidth);
     setWindowHeight(windowHeight);
     setRadius(5);
+    bounds.setup();
+    bounds.setDimensions(getRadius(), getRadius());
+    bounds.setPositionValues(getPosition().getX(), getPosition().getY());
     
 }
 
@@ -135,7 +141,6 @@ Vector2f& CannonBall::getPosition()
 	return position;
 
 }
-
 
 
 

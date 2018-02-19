@@ -22,6 +22,7 @@ void Sprite::setup(std::string filename)
     // set up the sprite.
     sprite.setTexture(texture);
     sprite.setColor(sf::Color(255, 255, 255, 200));
+   
     
     
 }
@@ -31,12 +32,12 @@ void Sprite::draw(sf::RenderWindow& window)
     window.draw(sprite);
 }
 
-void Sprite::position()
+void Sprite::position(float x, float y)
 {
-    sprite.setPosition(100, 100);
+    sprite.setPosition(x, y);
 }
 
-void Sprite::scale()
+void Sprite::scale(float multiplier)
 {
-    sprite.setScale(.2f, .2f);
+    sprite.setScale(multiplier, multiplier);
 }
