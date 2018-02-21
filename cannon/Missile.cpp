@@ -23,6 +23,7 @@ Missile::Missile(int ww, int wh)
     enabled = false;
     setWindowWidth(ww);
     setWindowHeight(wh);
+    bounds.setup();
     
     
 }
@@ -33,6 +34,7 @@ void Missile::draw(sf::RenderWindow& window)
     {
         shape.setPosition(getPosition().getX(), getPosition().getY());
         shape.setOrigin(getWidth()/2, getHeight()/2);
+        bounds.drawBounds(window);
         window.draw(shape);
     }
     
@@ -58,6 +60,10 @@ void Missile::update()
         setPosition(newPos);
         Vector2f gravity = Vector2f(0,0.03f);
         velocity.add(gravity);
+        
+        bounds.update2(getPosition().getX()-getWidth()/2, getPosition().getY()-getHeight()/2, getWidth(), getHeight());
+
+        
         
     }
 }

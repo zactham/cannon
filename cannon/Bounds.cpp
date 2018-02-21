@@ -17,6 +17,7 @@ Bounds::Bounds()
 void Bounds::setup()
 {
     boundsRectShape.setOutlineColor(sf::Color::Red);
+    boundsRectShape.setFillColor(sf::Color::Transparent);
     boundsRectShape.setOutlineThickness(outlineThickness);
 }
 
@@ -37,4 +38,12 @@ void Bounds::update(float x, float y, float size)
     bounds.top = y;
     bounds.width = size;
     bounds.height = size;
+}
+
+void Bounds::update2(float x, float y, float width, float height)
+{
+    bounds.left = x;
+    bounds.top = y;
+    bounds.width = width;
+    bounds.height = height;
 }

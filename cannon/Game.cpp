@@ -93,6 +93,7 @@ void Game::update()
     ui.setShotVelocity(spacebarTime);
     ui.update();
     ui.setShotVelocity2(tabTime);
+    ufo.update();
    
     
 }

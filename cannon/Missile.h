@@ -9,6 +9,7 @@
 #ifndef Missile_h
 #define Missile_h
 #include "Vector2f.h"
+#include "Bounds.h"
 #include <SFML/Graphics.hpp>
 class Missile
 {
@@ -19,6 +20,7 @@ private:
     bool enabled;
     int windowWidth;
     int windowHeight;
+    Bounds bounds;
     
     
 public:

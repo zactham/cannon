@@ -9,11 +9,14 @@
 #ifndef Sprite_h
 #define Sprite_h
 #include <SFML/Graphics.hpp>
+#include "Bounds.h"
 class Sprite
 {
     private:
      sf::Sprite sprite;
      sf::Texture texture;
+     Bounds bounds;
+    
     
     
     public:
@@ -22,6 +25,7 @@ class Sprite
         void draw(sf::RenderWindow& window);
         void position(float x, float y);
         void scale(float multiplier);
+        void update();
     
 };
 

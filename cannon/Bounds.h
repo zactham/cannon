@@ -23,6 +23,7 @@ public:
     void drawBounds(sf::RenderWindow& window);
     void setup();
     void update(float x, float y, float size);
+    void update2(float x, float y, float width, float height);
     
     
     

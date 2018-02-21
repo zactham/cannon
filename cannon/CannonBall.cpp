@@ -55,7 +55,7 @@ void CannonBall::update()
         Vector2f gravity = Vector2f(0,0.03f);
         velocity.add(gravity);
         
-        bounds.update(getPosition().getX()-getRadius()*2, getPosition().getY()-getRadius()*2, getRadius()*2);
+        bounds.update(getPosition().getX(), getPosition().getY(), getRadius()*2);
 		
     }
     

@@ -22,13 +22,13 @@ void Sprite::setup(std::string filename)
     // set up the sprite.
     sprite.setTexture(texture);
     sprite.setColor(sf::Color(255, 255, 255, 200));
-   
     
-    
+    bounds.setup();
 }
 
 void Sprite::draw(sf::RenderWindow& window)
 {
+    bounds.drawBounds(window);
     window.draw(sprite);
 }
 
@@ -40,4 +40,10 @@ void Sprite::position(float x, float y)
 void Sprite::scale(float multiplier)
 {
     sprite.setScale(multiplier, multiplier);
+}
+
+void Sprite::update()
+{
+    bounds.update2(sprite.getPosition().x, sprite.getPosition().y,
+                   (texture.getSize().x)*sprite.getScale().x, (texture.getSize().y)*sprite.getScale().y);
 }
