@@ -11,21 +11,13 @@
 #include <SFML/Graphics.hpp>
 Bounds::Bounds()
 {
-    outlineThickness = 5;
+    outlineThickness = 2;
 }
 
 void Bounds::setup()
 {
     boundsRectShape.setOutlineColor(sf::Color::Red);
     boundsRectShape.setOutlineThickness(outlineThickness);
-}
-void Bounds::setDimensions(float width, float height)
-{
-    boundsRectShape.setSize(sf::Vector2f(width, height)); // get from bounds Rect
-}
-void Bounds::setPositionValues(float x, float y)
-{
-     boundsRectShape.setPosition(x, y); // get from bounds Rect
 }
 
 sf::FloatRect& Bounds::getBounds()
@@ -34,6 +26,8 @@ sf::FloatRect& Bounds::getBounds()
 }
 void Bounds::drawBounds(sf::RenderWindow& window)
 {
+    boundsRectShape.setPosition(bounds.left, bounds.top);
+    boundsRectShape.setSize(sf::Vector2f(bounds.width, bounds.height));
     window.draw(boundsRectShape);
 }
 

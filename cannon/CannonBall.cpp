@@ -55,7 +55,7 @@ void CannonBall::update()
         Vector2f gravity = Vector2f(0,0.03f);
         velocity.add(gravity);
         
-        bounds.update(getPosition().getX(), getPosition().getY(), getRadius());
+        bounds.update(getPosition().getX()-getRadius()*2, getPosition().getY()-getRadius()*2, getRadius()*2);
 		
     }
     
@@ -111,9 +111,6 @@ void CannonBall::setup()
     setWindowHeight(windowHeight);
     setRadius(5);
     bounds.setup();
-    bounds.setDimensions(getRadius(), getRadius());
-    bounds.setPositionValues(getPosition().getX(), getPosition().getY());
-    
 }
 
 

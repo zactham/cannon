@@ -13,17 +13,15 @@ class Bounds
 {
 private:
     sf::FloatRect bounds;
+    sf::RectangleShape boundsRectShape;
     float outlineThickness = 0;
    
     
 public:
-    sf::RectangleShape boundsRectShape;
     Bounds();
     sf::FloatRect& getBounds();
     void drawBounds(sf::RenderWindow& window);
     void setup();
-    void setDimensions(float width, float height);
-    void setPositionValues(float x, float y);
     void update(float x, float y, float size);
     
     
